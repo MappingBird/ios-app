@@ -71,7 +71,7 @@ NSArray *fakeTitles4;
     self._mapView = [[MKMapView alloc] initWithFrame:MapOriginalFrame];
     [self.view insertSubview:self._mapView aboveSubview:self.tableView];
     
-    NSLog(@"%d", _currentPageIndex);
+    NSLog(@"currentPageIndex : %d", _currentPageIndex);
     
     fakeTitles1 = @[
                     @"FABRICA 椅子咖啡",

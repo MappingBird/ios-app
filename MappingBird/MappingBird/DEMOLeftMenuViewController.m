@@ -67,7 +67,7 @@
 }
 
 
-//#pragma mark - Fetched results controller
+#pragma mark - Fetched results controller
 - (NSFetchedResultsController *)fetchedResultsController {
     
     if (_fetchedResultsController != nil) {
@@ -88,6 +88,10 @@
     
     // Create and initialize the fetch results controller.
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[appDelegate managedObjectContext] sectionNameKeyPath:@"name" cacheName:@"Root"];
+    
+    //delete the cache before set the new predicate:
+    [NSFetchedResultsController deleteCacheWithName:nil];
+
     _fetchedResultsController.delegate = self;
     
     return _fetchedResultsController;
@@ -137,7 +141,8 @@
 //    }
 }
 
-
+#pragma mark -
+#pragma mark UITableView Datasource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -163,7 +168,6 @@
     
     NSArray *array =[self.fetchedResultsController sections];
     
-    NSLog(@"size : %lu",(unsigned long)[array count]);
     
     Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
