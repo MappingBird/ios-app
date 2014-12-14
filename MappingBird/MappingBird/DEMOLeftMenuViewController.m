@@ -11,11 +11,16 @@
 #import "DEMOSecondViewController.h"
 #import "UIViewController+RESideMenu.h"
 #import "DEMOThirdViewController.h"
+#import "AppDelegate.h"
+#import "Collection.h"
 
-@interface DEMOLeftMenuViewController ()
+@interface DEMOLeftMenuViewController (){
+        AppDelegate *appDelegate;
+}
 
 @property (strong, readwrite, nonatomic) UITableView *tableView;
-//@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -24,6 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+        appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    
     self.tableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 8) / 2.0f, self.view.frame.size.width, 54 * 8) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
@@ -43,34 +51,47 @@
     [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"thirdViewController"]]
                                                  animated:YES];
     [self.sideMenuViewController hideMenuViewController];
+ 
     
+    NSError *error;
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+         */
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+ 
 }
 
 
 //#pragma mark - Fetched results controller
-//- (NSFetchedResultsController *)fetchedResultsController {
-//    
-//    if (_fetchedResultsController != nil) {
-//        return _fetchedResultsController;
-//    }
-//    
-//    // Create and configure a fetch request with the Book entity.
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Book" inManagedObjectContext:self.managedObjectContext];
-//    [fetchRequest setEntity:entity];
-//    
-//    // Create the sort descriptors array.
-//    NSSortDescriptor *authorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"author" ascending:YES];
+- (NSFetchedResultsController *)fetchedResultsController {
+    
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    // Create and configure a fetch request with the Book entity.
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Collection" inManagedObjectContext:[appDelegate managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    
+    // Create the sort descriptors array.
+    NSSortDescriptor *cidDescriptor = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
 //    NSSortDescriptor *titleDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
-//    NSArray *sortDescriptors = @[authorDescriptor, titleDescriptor];
-//    [fetchRequest setSortDescriptors:sortDescriptors];
-//    
-//    // Create and initialize the fetch results controller.
-//    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"author" cacheName:@"Root"];
-//    _fetchedResultsController.delegate = self;
-//    
-//    return _fetchedResultsController;
-//}
+
+    NSArray *sortDescriptors = @[cidDescriptor];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Create and initialize the fetch results controller.
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[appDelegate managedObjectContext] sectionNameKeyPath:@"name" cacheName:@"Root"];
+    _fetchedResultsController.delegate = self;
+    
+    return _fetchedResultsController;
+}
 
 
 #pragma mark -
@@ -116,8 +137,7 @@
 //    }
 }
 
-#pragma mark -
-#pragma mark UITableView Datasource
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -126,17 +146,27 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+        return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 8;
+    
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:sectionIndex];
+    return [sectionInfo numberOfObjects];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"Cell";
+    
+    NSArray *array =[self.fetchedResultsController sections];
+    
+    NSLog(@"size : %lu",(unsigned long)[array count]);
+    
+    Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
+
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -149,22 +179,11 @@
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
     
-    NSArray *fakeTitles = @[@"Taipei Restaurants(61)",
-                            @"Taipei WIFI Cafe(4)",
-                            @"Taipei Zakka(5)",
-                            @"宜蘭景點(22)",
-                            @"冬季北海道(64)",
-                            @"冬季京阪神(2)",
-                            @"東京(13)",
-                            @"台灣美食(3)"];
-    
-    
-    NSArray *titles = @[@"Home", @"Calendar", @"Profile", @"Settings", @"Log Out",
-                        @"Log Out1", @"Log Out2", @"Log Out3"];
+
     NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty",
                         @"IconHome", @"IconHome", @"IconHome"];
-    cell.textLabel.text = titles[indexPath.row];
-    cell.textLabel.text = fakeTitles[indexPath.row];
+
+    cell.textLabel.text = collection.name;
     cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
     
     return cell;
