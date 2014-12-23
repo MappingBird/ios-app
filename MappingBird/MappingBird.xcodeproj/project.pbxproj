@@ -13,6 +13,7 @@
 		AF264A6C1A02A07D00C7DBC3 /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF264A6B1A02A07D00C7DBC3 /* LoginManager.m */; };
 		AF2890DB1A26B72F00EBCB63 /* RQToken.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2890DA1A26B72F00EBCB63 /* RQToken.m */; };
 		AF35104B1A22458D005476CE /* LoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AF35104A1A22458D005476CE /* LoginUser.m */; };
+		AF3DCA771A46C85400C413A4 /* PointMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3DCA761A46C85400C413A4 /* PointMgr.m */; };
 		AF4997E819F32F0300737552 /* DEMOFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4997E319F32F0300737552 /* DEMOFirstViewController.m */; };
 		AF4997E919F32F0300737552 /* DEMOSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4997E519F32F0300737552 /* DEMOSecondViewController.m */; };
 		AF4997EA19F32F0300737552 /* DEMOLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4997E719F32F0300737552 /* DEMOLeftMenuViewController.m */; };
@@ -63,6 +64,8 @@
 		AF2890DA1A26B72F00EBCB63 /* RQToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RQToken.m; path = Model/RQToken.m; sourceTree = "<group>"; };
 		AF3510491A22458D005476CE /* LoginUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUser.h; path = Model/LoginUser.h; sourceTree = "<group>"; };
 		AF35104A1A22458D005476CE /* LoginUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUser.m; path = Model/LoginUser.m; sourceTree = "<group>"; };
+		AF3DCA751A46C85400C413A4 /* PointMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointMgr.h; sourceTree = "<group>"; };
+		AF3DCA761A46C85400C413A4 /* PointMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointMgr.m; sourceTree = "<group>"; };
 		AF4997E219F32F0300737552 /* DEMOFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOFirstViewController.h; sourceTree = "<group>"; };
 		AF4997E319F32F0300737552 /* DEMOFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOFirstViewController.m; sourceTree = "<group>"; };
 		AF4997E419F32F0300737552 /* DEMOSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOSecondViewController.h; sourceTree = "<group>"; };
@@ -187,6 +190,8 @@
 				AF264A6B1A02A07D00C7DBC3 /* LoginManager.m */,
 				AFBAE0C31A1F120C00315912 /* CollectionMgr.h */,
 				AFBAE0C41A1F120C00315912 /* CollectionMgr.m */,
+				AF3DCA751A46C85400C413A4 /* PointMgr.h */,
+				AF3DCA761A46C85400C413A4 /* PointMgr.m */,
 			);
 			name = ApiManager;
 			sourceTree = "<group>";
@@ -439,6 +444,7 @@
 				AFED07E019E3658D00397949 /* RESideMenuRootVC.m in Sources */,
 				AF639A181A30B3A0008D5F87 /* PointData.m in Sources */,
 				AF60C7B519F96F3C005B2BEA /* LoginVC.m in Sources */,
+				AF3DCA771A46C85400C413A4 /* PointMgr.m in Sources */,
 				AFBAE0C81A1F174300315912 /* Collection.m in Sources */,
 				AF264A691A02A01200C7DBC3 /* LoginRequest.m in Sources */,
 				AF6928821A39FE6400E6A635 /* RPPoint.m in Sources */,

@@ -31,6 +31,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    [self saveContext];
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
@@ -47,6 +48,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+        [self saveContext];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
@@ -73,6 +75,7 @@
     if (m_persistentStoreCoordinator != nil){
         return m_persistentStoreCoordinator;
     }
+
     // 從Documents目錄下指定物件的路徑
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"data.sqlite"];
     NSError *error = nil;
@@ -141,27 +144,37 @@
 // 將資料儲存進managedObjectContext中
 - (void)saveContext
 {
+    
     NSError *error = nil;
     
-    // 取得NSManagedObjectContext物件
-    NSManagedObjectContext *managedObjectContext =  [self managedObjectContext];
-    
-    // 如果存在就進行儲存的動作
-    if (managedObjectContext != nil)
-    {
-        // 如果資料有變更就進行儲存
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
-        {
-            // 資料儲存發生錯誤
-            NSLog(@"Unresolved error %@, %@",
-                  error, [error userInfo]);
-            abort();
-        }else{
-            NSLog(@"saveContext");
+    if (![self.managedObjectContext save:&error]) {
+        if (error) {
+            NSLog(@"Unable to save changes.");
+            NSLog(@"%@, %@", error, error.localizedDescription);
         }
-    }else{
-        NSLog(@"null");
     }
+    
+//    NSError *error = nil;
+//    
+//    // 取得NSManagedObjectContext物件
+//    NSManagedObjectContext *managedObjectContext =  [self managedObjectContext];
+//    
+//    // 如果存在就進行儲存的動作
+//    if (managedObjectContext != nil)
+//    {
+//        // 如果資料有變更就進行儲存
+//        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
+//        {
+//            // 資料儲存發生錯誤
+//            NSLog(@"Unresolved error %@, %@",
+//                  error, [error userInfo]);
+//            abort();
+//        }else{
+//            NSLog(@"saveContext");
+//        }
+//    }else{
+//        NSLog(@"null");
+//    }
 }
 
 

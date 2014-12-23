@@ -8,6 +8,21 @@
 
 #import "RPPoint.h"
 
+
 @implementation RPPoint
+
++(RKObjectMapping*)defineResponseMapping   {
+    
+    
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[RPPoint class]];
+
+    [mapping addAttributeMappingsFromDictionary:@{
+                                                  @"id":   @"pid",
+
+                                                  }];
+    
+    
+    return mapping;
+}
 
 @end

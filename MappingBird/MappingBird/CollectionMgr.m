@@ -16,6 +16,7 @@
 #import "PointData.h"
 #import "Collection.h"
 #import "RPPoint.h"
+#import "PointMgr.h"
 
 
 @interface CollectionMgr ()
@@ -33,7 +34,6 @@
     
     
     RQToken *dataObject = [[RQToken alloc] init];
-    
     
     NSURL *baseURL = [NSURL URLWithString:MAPPING_BIRD_HOST];
     
@@ -66,6 +66,8 @@
     
     
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:topMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"collections" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+
+    // 有 array 用這個，不然用 [objectManager addResponseDescriptor ...
     [[RKObjectManager sharedManager] addResponseDescriptor:responseDescriptor];
 
 
@@ -83,7 +85,7 @@
 
                        if(response.error != nil){
                            
-                           if(DEBUG){NSLog(@"fail to get collections");}
+                           if(MP_DEBUG_INFO){NSLog(@"fail to get collections");}
                            
                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                            message:@"Oops...\nplease try again later"
@@ -101,7 +103,7 @@
                        
                        
                    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                       if(DEBUG){NSLog(@"fail to get collections, network error");}
+                       if(MP_DEBUG_INFO){NSLog(@"fail to get collections, network error");}
 
                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                        message:@"Oops...\nPlease try again later"
@@ -121,15 +123,6 @@
 -(void) saveCollectionArrayToDB:(AppDelegate*)appDelegate withResponse:(NSArray*) data {
     
     for (RPCollection *rpCollection in data) {
-        
-        
-        Collection *collection = (Collection*)[NSEntityDescription
-                                               insertNewObjectForEntityForName:@"Collection"
-                                               inManagedObjectContext:[appDelegate managedObjectContext]];
-        
-        collection.id = rpCollection.id;
-        collection.name = rpCollection.name;
-        collection.user = rpCollection.user;
         
         NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id == %@", rpCollection.id];
         
@@ -154,37 +147,41 @@
 
         if(unique){
             
-            if(DEBUG){
+            if(MP_DEBUG_INFO){
                 NSLog(@"add collection...");
-                NSLog(@"id : %@", collection.id);
-                NSLog(@"name : %@",  collection.name);
+                NSLog(@"id : %@", rpCollection.id);
+                NSLog(@"name : %@",  rpCollection.name);
             }
             
             
-            if (![appDelegate.m_managedObjectContext save:&error]) {
-                NSLog(@"新增 collection 遇到錯誤");
+            NSManagedObject *collection;
+            if(items.count >0){
+                collection = (NSManagedObject *)[items objectAtIndex:0];
+                
+            }else{
+                collection = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:appDelegate.managedObjectContext];
             }
+            [collection setValue:rpCollection.id forKey:@"id"];
+            [collection setValue:rpCollection.name forKey:@"name"];
+            [collection setValue:rpCollection.user forKey:@"user"];
+            
+            
+            if (![collection.managedObjectContext save:&error]) {
+                NSLog(@"新增 point 遇到錯誤");
+                continue;
+            }
+            
         }
         
-        
+
     }
     
 }
 
 
 -(void) SavePointIdToDB:(AppDelegate*)appDelegate collectionID:(NSNumber*)cId points:(NSArray*) data {
-
-//    if(DEBUG) NSLog(@"point # : %lu", (unsigned long)data.count);
     
     for (NSNumber *pointId in data) {
-        
-//        if(DEBUG) NSLog(@"point id : %@", pointId);
-
-        PointData *point = (PointData*)[NSEntityDescription
-                                               insertNewObjectForEntityForName:@"PointData"
-                                               inManagedObjectContext:[appDelegate managedObjectContext]];
-        
-        point.id = pointId;
         
         NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id == %@", pointId];
         
@@ -202,18 +199,30 @@
         
         if(items.count > DUPLICATE_COUNT){
             unique = NO;
+            continue;
         }
         
         if(unique){
             
-//            if(DEBUG) NSLog(@"add point, id : %@", pointId);
-            
-            
-            if (![appDelegate.m_managedObjectContext save:&error]) {
-                NSLog(@"新增 point 遇到錯誤");
+            NSManagedObject *point;
+            if(items.count >0){
+                point = (NSManagedObject *)[items objectAtIndex:0];
+                if(MP_DEBUG_INFO) NSLog(@"update point, id : %@", pointId);
+            }else{
+                point = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:appDelegate.managedObjectContext];
+                if(MP_DEBUG_INFO) NSLog(@"add point, id : %@", pointId);
             }
+            [point setValue:pointId forKey:@"id"];
+
+            
+            if (![point.managedObjectContext save:&error]) {
+                NSLog(@"新增 point 遇到錯誤");
+                continue;
+            }
+            
         }
     }
+    
 }
 
 

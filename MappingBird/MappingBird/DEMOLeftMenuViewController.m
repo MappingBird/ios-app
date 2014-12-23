@@ -106,6 +106,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     DEMOThirdViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"thirdViewController"];
+
     viewController.currentPageIndex = indexPath.row;
     
     [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:viewController]
@@ -166,12 +167,6 @@
 {
     static NSString *cellIdentifier = @"Cell";
     
-    NSArray *array =[self.fetchedResultsController sections];
-    
-    
-    Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
-
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
@@ -187,7 +182,12 @@
     NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty",
                         @"IconHome", @"IconHome", @"IconHome"];
 
+        Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
     cell.textLabel.text = collection.name;
+    
+//    cell.textLabel.text = [NSString initWithFormat:@"%@ (%@)", collection.name, collection.po ];
+    
     cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
     
     return cell;

@@ -13,11 +13,14 @@
 #import "User.h"
 #import "JNKeychain.h"
 #import "Constants.h"
-
+#import "PointMgr.h"
+#import "PointData.h"
 
 @interface RESideMenuRootVC (){
     AppDelegate *appDelegate;
 }
+
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -43,6 +46,36 @@
     self.delegate = self;
 }
 
+#pragma mark - Fetched results controller
+- (NSFetchedResultsController *)fetchedResultsController {
+    
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    // Create and configure a fetch request with the Book entity.
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PointData" inManagedObjectContext:[appDelegate managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    
+    // Create the sort descriptors array.
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
+    //    NSSortDescriptor *titleDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+    
+    NSArray *sortDescriptors = @[descriptor];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Create and initialize the fetch results controller.
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[appDelegate managedObjectContext] sectionNameKeyPath:@"id" cacheName:@"Root"];
+    
+    //delete the cache before set the new predicate:
+    [NSFetchedResultsController deleteCacheWithName:nil];
+    
+    _fetchedResultsController.delegate = self;
+    
+    return _fetchedResultsController;
+}
+
 
 
 -(void)viewDidLoad{
@@ -51,6 +84,21 @@
     appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     
     RPCallback  callback = ^(void){
+        
+        RPCallback  pointCallback = ^(void){};
+        
+        
+        NSLog(@"%lu", (unsigned long)[[self.fetchedResultsController sections] count]);
+
+
+        // get more details
+            NSString *token = (NSString *)[JNKeychain loadValueForKey:MB_TOKEN];
+        for (PointData *data in [[self fetchedResultsController] fetchedObjects]) {
+        
+            [[PointMgr alloc] UpdatePointByPid:data.id token:token callback:pointCallback appDelegate:appDelegate];
+            
+            break;
+        }
     };
     
     
@@ -59,6 +107,18 @@
     
     if((![token length] == 0) ){
         [[CollectionMgr alloc] UpdateCollectionsByUserId:user_id token:token callback:callback appDelegate:appDelegate];
+    }
+    
+    
+    NSError *error;
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+         */
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        //abort();
     }
 }
 

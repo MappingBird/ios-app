@@ -26,7 +26,7 @@
     user.email = response.user.email;
     user.token = response.token;
     
-    if(DEBUG){
+    if(MP_DEBUG_INFO){
         NSLog(@"User id : %@", user.id);
         NSLog(@"User email : %@",  user.email);
         NSLog(@"User token : %@",  user.token);
@@ -99,9 +99,10 @@
                                           method:RKRequestMethodPOST
                                           ]];
 
-    // what to print
-    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
-    RKLogConfigureByName("Restkit/Network", RKLogLevelDebug);
+    if(MP_DEBUG_INFO){
+        RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+        RKLogConfigureByName("Restkit/Network", RKLogLevelDebug);
+    }
     
     RKObjectMapping *responseMapping = [LoginResponse defineLoginResponseMapping];
     
@@ -111,7 +112,6 @@
                                           pathPattern:nil
                                           keyPath:nil
                                           statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)
-                                          
                                           ]];
     
     
@@ -127,7 +127,7 @@
                        // login fail
                        if(response.error != nil){
                            
-                           if(DEBUG){NSLog(@"fail to login");}
+                           if(MP_DEBUG_INFO){NSLog(@"fail to login");}
                            
                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                            message:@"Invalid email or password\nPlease try again"
@@ -141,8 +141,6 @@
                        [self saveToDB:appDelegate withResponse:response];
 
                        callback();
-                       
-//                     NSLog(@" token: %@", obj.token);
                        
                    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
                        

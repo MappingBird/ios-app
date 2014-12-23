@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <RestKit/RestKit.h>
 
 @interface RPPoint : NSObject
 
@@ -22,5 +23,7 @@
 @property (nonatomic, copy) NSString * type;
 @property (nonatomic, copy) NSDate * update_time;
 @property (nonatomic, copy) NSString * url;
+
++(RKObjectMapping*)defineResponseMapping;
 
 @end

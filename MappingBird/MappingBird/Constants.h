@@ -16,6 +16,8 @@
 #define MAPPING_BIRD_HOST @"https://mappingbird.com"
 #endif
 
+
+#define MP_DEBUG_INFO  0
 #define DUPLICATE_COUNT  1
 
 #define MB_TOKEN  @"MB_TOKEN"
