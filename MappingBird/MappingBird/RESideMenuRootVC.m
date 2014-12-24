@@ -86,16 +86,12 @@
     RPCallback  callback = ^(void){
         
         RPCallback  pointCallback = ^(void){};
-        
-        
-        NSLog(@"%lu", (unsigned long)[[self.fetchedResultsController sections] count]);
-
 
         // get more details
             NSString *token = (NSString *)[JNKeychain loadValueForKey:MB_TOKEN];
         for (PointData *data in [[self fetchedResultsController] fetchedObjects]) {
         
-            [[PointMgr alloc] UpdatePointByPid:data.id token:token callback:pointCallback appDelegate:appDelegate];
+            [[PointMgr alloc] UpdatePointByPid:[data.id stringValue] token:token callback:pointCallback appDelegate:appDelegate];
             
             break;
         }
