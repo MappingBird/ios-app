@@ -93,7 +93,8 @@
         
             [[PointMgr alloc] UpdatePointByPid:[data.id stringValue] token:token callback:pointCallback appDelegate:appDelegate];
             
-            break;
+            
+            break; // Need to remove
         }
     };
     

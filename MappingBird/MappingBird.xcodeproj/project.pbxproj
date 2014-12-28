@@ -21,6 +21,8 @@
 		AF56DC6819F3585500C412E6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF56DC6719F3585500C412E6 /* MapKit.framework */; };
 		AF60C7B519F96F3C005B2BEA /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF60C7B419F96F3C005B2BEA /* LoginVC.m */; };
 		AF639A181A30B3A0008D5F87 /* PointData.m in Sources */ = {isa = PBXBuildFile; fileRef = AF639A171A30B3A0008D5F87 /* PointData.m */; };
+		AF6641BF1A4DC40F0084E94A /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6641BE1A4DC40F0084E94A /* Image.m */; };
+		AF6641C21A4DC4750084E94A /* RP_Image.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6641C11A4DC4750084E94A /* RP_Image.m */; };
 		AF69287F1A39F79600E6A635 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF69287E1A39F79600E6A635 /* Security.framework */; };
 		AF6928821A39FE6400E6A635 /* RPPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6928811A39FE6400E6A635 /* RPPoint.m */; };
 		AF7336791A298E6000EF98FC /* RPCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7336781A298E6000EF98FC /* RPCollections.m */; };
@@ -79,6 +81,10 @@
 		AF60C7B419F96F3C005B2BEA /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		AF639A161A30B3A0008D5F87 /* PointData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointData.h; path = CoreData/PointData.h; sourceTree = "<group>"; };
 		AF639A171A30B3A0008D5F87 /* PointData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointData.m; path = CoreData/PointData.m; sourceTree = "<group>"; };
+		AF6641BD1A4DC40F0084E94A /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = CoreData/Image.h; sourceTree = "<group>"; };
+		AF6641BE1A4DC40F0084E94A /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Image.m; path = CoreData/Image.m; sourceTree = "<group>"; };
+		AF6641C01A4DC4750084E94A /* RP_Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RP_Image.h; path = Response/RP_Image.h; sourceTree = "<group>"; };
+		AF6641C11A4DC4750084E94A /* RP_Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RP_Image.m; path = Response/RP_Image.m; sourceTree = "<group>"; };
 		AF69287E1A39F79600E6A635 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AF6928801A39FE6400E6A635 /* RPPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RPPoint.h; path = Model/RPPoint.h; sourceTree = "<group>"; };
 		AF6928811A39FE6400E6A635 /* RPPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RPPoint.m; path = Model/RPPoint.m; sourceTree = "<group>"; };
@@ -176,6 +182,15 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
+		AF6641C31A4DC4810084E94A /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				AF6641C01A4DC4750084E94A /* RP_Image.h */,
+				AF6641C11A4DC4750084E94A /* RP_Image.m */,
+			);
+			name = Response;
+			sourceTree = "<group>";
+		};
 		AF6928771A39F5B900E6A635 /* KeyChain */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				AFE21F821A07E476000F9162 /* CoreData.xcdatamodeld */,
+				AF6641BD1A4DC40F0084E94A /* Image.h */,
+				AF6641BE1A4DC40F0084E94A /* Image.m */,
 				AF639A161A30B3A0008D5F87 /* PointData.h */,
 				AF639A171A30B3A0008D5F87 /* PointData.m */,
 				AFBAE0C61A1F174300315912 /* Collection.h */,
@@ -271,6 +288,7 @@
 				AFED07E619E3658D00397949 /* LaunchScreen.xib */,
 				AFED07E119E3658D00397949 /* Main.storyboard */,
 				AFED07D719E3658D00397949 /* Supporting Files */,
+				AF6641C31A4DC4810084E94A /* Response */,
 				AFE0B09C1A014DD500C09D3A /* Model */,
 				AFBAE0CB1A1F19CE00315912 /* Constants */,
 				AFBAE0C91A1F198B00315912 /* ApiManager */,
@@ -442,6 +460,7 @@
 			files = (
 				AF4997E819F32F0300737552 /* DEMOFirstViewController.m in Sources */,
 				AFED07E019E3658D00397949 /* RESideMenuRootVC.m in Sources */,
+				AF6641C21A4DC4750084E94A /* RP_Image.m in Sources */,
 				AF639A181A30B3A0008D5F87 /* PointData.m in Sources */,
 				AF60C7B519F96F3C005B2BEA /* LoginVC.m in Sources */,
 				AF3DCA771A46C85400C413A4 /* PointMgr.m in Sources */,
@@ -461,6 +480,7 @@
 				AF264A631A029D2200C7DBC3 /* LoginResponse.m in Sources */,
 				AF2890DB1A26B72F00EBCB63 /* RQToken.m in Sources */,
 				AFC7623E1A24ECA800303048 /* RPCollection.m in Sources */,
+				AF6641BF1A4DC40F0084E94A /* Image.m in Sources */,
 				AFBAE0C51A1F120C00315912 /* CollectionMgr.m in Sources */,
 				AFED080119E366CC00397949 /* SplashScreenVC.m in Sources */,
 			);

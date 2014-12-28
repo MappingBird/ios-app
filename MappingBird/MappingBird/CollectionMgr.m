@@ -65,15 +65,18 @@
     
     
     
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:topMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"collections" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor
+                                                responseDescriptorWithMapping:topMapping
+                                                method:RKRequestMethodAny
+                                                pathPattern:nil
+                                                keyPath:@"collections"
+                                                statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
 
     // 有 array 用這個，不然用 [objectManager addResponseDescriptor ...
     [[RKObjectManager sharedManager] addResponseDescriptor:responseDescriptor];
 
 
     [objectManager setRequestSerializationMIMEType: RKMIMETypeJSON];
-
-
     
     [objectManager getObject:dataObject path:[NSString stringWithFormat:@"/api/users/%@/collections", userId]
                    parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {

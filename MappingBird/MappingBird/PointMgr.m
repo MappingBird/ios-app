@@ -12,6 +12,7 @@
 #import "RPPoint.h"
 #import "Constants.h"
 #import "PointData.h"
+#import "RP_Image.h"
 
 @implementation PointMgr
 
@@ -41,23 +42,9 @@
     [RKMIMETypeSerialization registerClass:[RKNSJSONSerialization class]
                                forMIMEType:@"application/json"];
  
+ 
     
-    
-    RKObjectMapping *responseMapping = [RKObjectMapping mappingForClass:[RPPoint class]];
-    [responseMapping addAttributeMappingsFromArray:@[ @"collection",
-                                                 @"coordinates",
-                                                 @"create_time",
-                                                 @"descr",
-                                                 @"id",
-                                                 @"place_address",
-                                                 @"place_name",
-                                                 @"place_phone",
-                                                 @"title",
-                                                 @"type",
-                                                 @"update_time",
-                                                 @"url"
-                                                 ]];
-    
+    RKObjectMapping *responseMapping = [RPPoint defineResponseMapping];
     
     
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor
@@ -68,7 +55,6 @@
                                                 statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
 
     [objectManager addResponseDescriptor:responseDescriptor];
-    
     
     [objectManager setRequestSerializationMIMEType: RKMIMETypeJSON];
     
@@ -110,6 +96,7 @@
     
     RPPoint *data = [response objectAtIndex:0];
     
+    
     NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id == %@", data.id];
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PointData" inManagedObjectContext:[appDelegate managedObjectContext]];
@@ -138,11 +125,70 @@
 
     
     [updateData.managedObjectContext save:&error];
-        
+
+    [self SavePointImages:appDelegate images:data.images];
+
 //    }
     
 }
 
+-(void) SavePointImages:(AppDelegate*)appDelegate images:(NSArray*)images {
+
+     for (RP_Image *data in images) {
+
+                  NSLog(@"%@", data.id);
+         NSLog(@"%@", data.url);
+         NSLog(@"%@", data.thumb_path);
+
+         
+         NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id == %@", data.id];
+         
+         NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:[appDelegate managedObjectContext]];
+         
+         NSFetchRequest *request = [[NSFetchRequest alloc] init];
+         [request setEntity:entityDescription];
+         [request setPredicate:predicate];
+         
+         BOOL unique = YES;
+         NSError *error;
+         NSArray *items = [[appDelegate managedObjectContext] executeFetchRequest:request error:&error];
+         
+         if(items.count > DUPLICATE_COUNT){
+             unique = NO;
+         }
+         
+         if(unique){
+             
+             if(MP_DEBUG_INFO){
+                 NSLog(@"add collection...");
+                 NSLog(@"id : %@", data.id);
+                 NSLog(@"url : %@",  data.url);
+             }
+             
+             
+             NSManagedObject *image;
+             if(items.count > 0){
+                 image = (NSManagedObject *)[items objectAtIndex:0];
+                 
+             }else{
+                 image = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:appDelegate.managedObjectContext];
+             }
+             [image setValue:data.id forKey:@"id"];
+             [image setValue:data.url forKey:@"url"];
+             [image setValue:data.thumb_path forKey:@"thumb_path"];
+             [image setValue:data.point forKey:@"point"];
+             [image setValue:data.create_time forKey:@"create_time"];
+             [image setValue:data.update_time forKey:@"update_time"];
+             
+             if (![image.managedObjectContext save:&error]) {
+                 NSLog(@"新增 image 遇到錯誤");
+                 continue;
+             }
+             
+         }
+     }
+    
+}
 
 -(void) GetPointInfo:(NSNumber*)pid token:(NSString*)token callback:(RPCallback) callback{
     

@@ -24,6 +24,8 @@
 @property (nonatomic, copy) NSDate * update_time;
 @property (nonatomic, copy) NSString * url;
 
+@property (nonatomic, copy)  NSArray * images;
+
 +(RKObjectMapping*)defineResponseMapping;
 
 @end
