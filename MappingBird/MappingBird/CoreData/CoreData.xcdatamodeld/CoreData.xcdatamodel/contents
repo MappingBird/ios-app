@@ -15,6 +15,17 @@
         <attribute name="update_time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="coordinates" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="create_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="place_address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="point_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="update_time" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
     <entity name="PointData" representedClassName="PointData" syncable="YES">
         <attribute name="collection" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="coordinates" optional="YES" attributeType="String" syncable="YES"/>
@@ -36,8 +47,9 @@
     </entity>
     <elements>
         <element name="Collection" positionX="-63" positionY="0" width="128" height="118"/>
+        <element name="Image" positionX="-189" positionY="-108" width="128" height="133"/>
         <element name="PointData" positionX="-261" positionY="-261" width="128" height="223"/>
         <element name="User" positionX="-324" positionY="-0" width="128" height="88"/>
-        <element name="Image" positionX="-189" positionY="-108" width="128" height="133"/>
+        <element name="Location" positionX="-189" positionY="-108" width="128" height="178"/>
     </elements>
 </model>

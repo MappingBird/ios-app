@@ -167,6 +167,8 @@
             [collection setValue:rpCollection.id forKey:@"id"];
             [collection setValue:rpCollection.name forKey:@"name"];
             [collection setValue:rpCollection.user forKey:@"user"];
+            [collection setValue:rpCollection.create_time forKey:@"create_time"];
+            [collection setValue:rpCollection.update_time forKey:@"update_time"];
             
             
             if (![collection.managedObjectContext save:&error]) {

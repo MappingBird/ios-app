@@ -21,6 +21,8 @@
 		AF56DC6819F3585500C412E6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF56DC6719F3585500C412E6 /* MapKit.framework */; };
 		AF60C7B519F96F3C005B2BEA /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF60C7B419F96F3C005B2BEA /* LoginVC.m */; };
 		AF639A181A30B3A0008D5F87 /* PointData.m in Sources */ = {isa = PBXBuildFile; fileRef = AF639A171A30B3A0008D5F87 /* PointData.m */; };
+		AF64DEEA1A4F9E9000E0C387 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = AF64DEE91A4F9E9000E0C387 /* Location.m */; };
+		AF64DEED1A4F9EBD00E0C387 /* RP_Location.m in Sources */ = {isa = PBXBuildFile; fileRef = AF64DEEC1A4F9EBD00E0C387 /* RP_Location.m */; };
 		AF6641BF1A4DC40F0084E94A /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6641BE1A4DC40F0084E94A /* Image.m */; };
 		AF6641C21A4DC4750084E94A /* RP_Image.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6641C11A4DC4750084E94A /* RP_Image.m */; };
 		AF69287F1A39F79600E6A635 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF69287E1A39F79600E6A635 /* Security.framework */; };
@@ -81,6 +83,10 @@
 		AF60C7B419F96F3C005B2BEA /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		AF639A161A30B3A0008D5F87 /* PointData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointData.h; path = CoreData/PointData.h; sourceTree = "<group>"; };
 		AF639A171A30B3A0008D5F87 /* PointData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointData.m; path = CoreData/PointData.m; sourceTree = "<group>"; };
+		AF64DEE81A4F9E9000E0C387 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = CoreData/Location.h; sourceTree = "<group>"; };
+		AF64DEE91A4F9E9000E0C387 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = CoreData/Location.m; sourceTree = "<group>"; };
+		AF64DEEB1A4F9EBD00E0C387 /* RP_Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RP_Location.h; path = Response/RP_Location.h; sourceTree = "<group>"; };
+		AF64DEEC1A4F9EBD00E0C387 /* RP_Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RP_Location.m; path = Response/RP_Location.m; sourceTree = "<group>"; };
 		AF6641BD1A4DC40F0084E94A /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = CoreData/Image.h; sourceTree = "<group>"; };
 		AF6641BE1A4DC40F0084E94A /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Image.m; path = CoreData/Image.m; sourceTree = "<group>"; };
 		AF6641C01A4DC4750084E94A /* RP_Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RP_Image.h; path = Response/RP_Image.h; sourceTree = "<group>"; };
@@ -187,6 +193,8 @@
 			children = (
 				AF6641C01A4DC4750084E94A /* RP_Image.h */,
 				AF6641C11A4DC4750084E94A /* RP_Image.m */,
+				AF64DEEB1A4F9EBD00E0C387 /* RP_Location.h */,
+				AF64DEEC1A4F9EBD00E0C387 /* RP_Location.m */,
 			);
 			name = Response;
 			sourceTree = "<group>";
@@ -244,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				AFE21F821A07E476000F9162 /* CoreData.xcdatamodeld */,
+				AF64DEE81A4F9E9000E0C387 /* Location.h */,
+				AF64DEE91A4F9E9000E0C387 /* Location.m */,
 				AF6641BD1A4DC40F0084E94A /* Image.h */,
 				AF6641BE1A4DC40F0084E94A /* Image.m */,
 				AF639A161A30B3A0008D5F87 /* PointData.h */,
@@ -472,9 +482,11 @@
 				AF4997EA19F32F0300737552 /* DEMOLeftMenuViewController.m in Sources */,
 				AF264A6C1A02A07D00C7DBC3 /* LoginManager.m in Sources */,
 				AFBAE0C01A1F0EDA00315912 /* User.m in Sources */,
+				AF64DEEA1A4F9E9000E0C387 /* Location.m in Sources */,
 				AF35104B1A22458D005476CE /* LoginUser.m in Sources */,
 				AF7336791A298E6000EF98FC /* RPCollections.m in Sources */,
 				AF4997E919F32F0300737552 /* DEMOSecondViewController.m in Sources */,
+				AF64DEED1A4F9EBD00E0C387 /* RP_Location.m in Sources */,
 				AFED07DA19E3658D00397949 /* main.m in Sources */,
 				AF4997ED19F32F4700737552 /* DEMOThirdViewController.m in Sources */,
 				AF264A631A029D2200C7DBC3 /* LoginResponse.m in Sources */,

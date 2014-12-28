@@ -17,8 +17,8 @@
 @property (nonatomic, copy)  NSNumber * user;
 @property (nonatomic, copy)  NSArray * points;
 
-@property (nonatomic, copy)  NSString * create_time;
-@property (nonatomic, copy)  NSString * update_time;
+@property (nonatomic, copy)  NSDate * create_time;
+@property (nonatomic, copy)  NSDate * update_time;
 
 
 @property (nonatomic) NSString* error;

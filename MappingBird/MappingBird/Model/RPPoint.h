@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
+#import "RP_Location.h"
 
 @interface RPPoint : NSObject
 
@@ -25,6 +26,7 @@
 @property (nonatomic, copy) NSString * url;
 
 @property (nonatomic, copy)  NSArray * images;
+@property RP_Location *location;
 
 +(RKObjectMapping*)defineResponseMapping;
 

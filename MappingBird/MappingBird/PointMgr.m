@@ -108,7 +108,7 @@
     
     NSArray *items = [[appDelegate managedObjectContext] executeFetchRequest:request error:&error];
     
-    if(DEBUG) NSLog(@"update, title : %@",data.title);
+    if(MP_DEBUG_INFO) NSLog(@"update, title : %@",data.title);
 
     NSManagedObject *updateData = (NSManagedObject *)[items objectAtIndex:0];
     [updateData setValue:data.title forKey:@"title"];
@@ -128,17 +128,17 @@
 
     [self SavePointImages:appDelegate images:data.images];
 
+    [self SavePointLocation:appDelegate pointID:data.id location:data.location];
+    
+
 //    }
     
 }
 
+
 -(void) SavePointImages:(AppDelegate*)appDelegate images:(NSArray*)images {
 
      for (RP_Image *data in images) {
-
-                  NSLog(@"%@", data.id);
-         NSLog(@"%@", data.url);
-         NSLog(@"%@", data.thumb_path);
 
          
          NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id == %@", data.id];
@@ -189,6 +189,63 @@
      }
     
 }
+
+
+-(void) SavePointLocation:(AppDelegate*)appDelegate pointID:(NSNumber*)pointId location:(RP_Location*)location {
+
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id == %@", location.id];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:[appDelegate managedObjectContext]];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    [request setPredicate:predicate];
+    
+    BOOL unique = YES;
+    NSError *error;
+    NSArray *items = [[appDelegate managedObjectContext] executeFetchRequest:request error:&error];
+    
+    if(items.count > DUPLICATE_COUNT){
+        unique = NO;
+    }
+    
+    if(unique){
+        
+        if(MP_DEBUG_INFO){
+            NSLog(@"add collection...");
+            NSLog(@"id : %@", location.id);
+            NSLog(@"url : %@",  location.place_name);
+        }
+        
+        
+        NSManagedObject *data;
+        if(items.count > 0){
+            data = (NSManagedObject *)[items objectAtIndex:0];
+            
+        }else{
+            data = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:appDelegate.managedObjectContext];
+        }
+
+        [data setValue:location.id forKey:@"id"];
+        [data setValue:location.place_name forKey:@"place_name"];
+        [data setValue:location.place_address forKey:@"place_address"];
+        [data setValue:location.place_phone forKey:@"place_phone"];
+        [data setValue:location.coordinates forKey:@"coordinates"];
+        [data setValue:location.category forKey:@"category"];
+        [data setValue:location.create_time forKey:@"create_time"];
+        [data setValue:location.update_time forKey:@"update_time"];
+
+        [data setValue:pointId forKey:@"point_id"];
+        
+        
+        if (![data.managedObjectContext save:&error]) {
+            NSLog(@"新增 image 遇到錯誤");
+        }
+        
+    }
+
+}
+
 
 -(void) GetPointInfo:(NSNumber*)pid token:(NSString*)token callback:(RPCallback) callback{
     
