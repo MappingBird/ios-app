@@ -13,6 +13,7 @@
 #import "Constants.h"
 #import "PointData.h"
 #import "RP_Image.h"
+#import "RP_Tag.h"
 
 @implementation PointMgr
 
@@ -58,8 +59,6 @@
     
     [objectManager setRequestSerializationMIMEType: RKMIMETypeJSON];
     
-    
-    
     [objectManager getObject:dataObject path:[NSString stringWithFormat:@"/api/points/%@", pid]
                   parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                       
@@ -69,7 +68,7 @@
                       
                       callback();
                       
-                      
+
                   } failure:^(RKObjectRequestOperation *operation, NSError *error) {
                       if(DEBUG){NSLog(@"fail to get collections, network error");}
                       
@@ -96,7 +95,6 @@
     
     RPPoint *data = [response objectAtIndex:0];
     
-    
     NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id == %@", data.id];
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PointData" inManagedObjectContext:[appDelegate managedObjectContext]];
@@ -122,16 +120,73 @@
     [updateData setValue:data.type forKey:@"type"];
     [updateData setValue:data.update_time forKey:@"update_time"];
     [updateData setValue:data.url forKey:@"url"];
-
     
     [updateData.managedObjectContext save:&error];
 
     [self SavePointImages:appDelegate images:data.images];
 
     [self SavePointLocation:appDelegate pointID:data.id location:data.location];
+
+    [self SavePointTags:appDelegate tags:data.tags];
     
+//    for(RP_Tag* tag in data.tags){
+//        NSLog(@"tag name : %@", tag.name);
+//        // save tag here
+//    }
 
 //    }
+    
+}
+
+-(void) SavePointTags:(AppDelegate*)appDelegate tags:(NSArray*)array {
+
+    for (RP_Tag *item in array) {
+        
+        
+        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id == %@", item.id];
+        
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Tag" inManagedObjectContext:[appDelegate managedObjectContext]];
+        
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entityDescription];
+        [request setPredicate:predicate];
+        
+        BOOL unique = YES;
+        NSError *error;
+        NSArray *items = [[appDelegate managedObjectContext] executeFetchRequest:request error:&error];
+        
+        if(items.count > DUPLICATE_COUNT){
+            unique = NO;
+        }
+        
+        if(unique){
+            
+            if(MP_DEBUG_INFO){
+                NSLog(@"add tag...");
+                NSLog(@"id : %@", item.id);
+                NSLog(@"name : %@",  item.name);
+            }
+            
+            
+            NSManagedObject *data;
+            if(items.count > 0){
+                data = (NSManagedObject *)[items objectAtIndex:0];
+                
+            }else{
+                data = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:appDelegate.managedObjectContext];
+            }
+            [data setValue:item.id forKey:@"id"];
+            [data setValue:item.name forKey:@"name"];
+
+            
+            if (![data.managedObjectContext save:&error]) {
+                NSLog(@"新增 tag 遇到錯誤");
+                continue;
+            }
+            
+        }
+    }
+
     
 }
 

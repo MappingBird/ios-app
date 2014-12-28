@@ -27,6 +27,7 @@
 
 @property (nonatomic, copy)  NSArray * images;
 @property RP_Location *location;
+@property (nonatomic, copy)  NSArray * tags;
 
 +(RKObjectMapping*)defineResponseMapping;
 

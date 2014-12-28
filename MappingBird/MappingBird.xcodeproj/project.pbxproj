@@ -23,6 +23,8 @@
 		AF639A181A30B3A0008D5F87 /* PointData.m in Sources */ = {isa = PBXBuildFile; fileRef = AF639A171A30B3A0008D5F87 /* PointData.m */; };
 		AF64DEEA1A4F9E9000E0C387 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = AF64DEE91A4F9E9000E0C387 /* Location.m */; };
 		AF64DEED1A4F9EBD00E0C387 /* RP_Location.m in Sources */ = {isa = PBXBuildFile; fileRef = AF64DEEC1A4F9EBD00E0C387 /* RP_Location.m */; };
+		AF64DEF01A4FBB4000E0C387 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = AF64DEEF1A4FBB4000E0C387 /* Tag.m */; };
+		AF64DEF31A4FD75100E0C387 /* RP_Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = AF64DEF21A4FD75100E0C387 /* RP_Tag.m */; };
 		AF6641BF1A4DC40F0084E94A /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6641BE1A4DC40F0084E94A /* Image.m */; };
 		AF6641C21A4DC4750084E94A /* RP_Image.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6641C11A4DC4750084E94A /* RP_Image.m */; };
 		AF69287F1A39F79600E6A635 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF69287E1A39F79600E6A635 /* Security.framework */; };
@@ -87,6 +89,10 @@
 		AF64DEE91A4F9E9000E0C387 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = CoreData/Location.m; sourceTree = "<group>"; };
 		AF64DEEB1A4F9EBD00E0C387 /* RP_Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RP_Location.h; path = Response/RP_Location.h; sourceTree = "<group>"; };
 		AF64DEEC1A4F9EBD00E0C387 /* RP_Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RP_Location.m; path = Response/RP_Location.m; sourceTree = "<group>"; };
+		AF64DEEE1A4FBB4000E0C387 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = CoreData/Tag.h; sourceTree = "<group>"; };
+		AF64DEEF1A4FBB4000E0C387 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = CoreData/Tag.m; sourceTree = "<group>"; };
+		AF64DEF11A4FD75100E0C387 /* RP_Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RP_Tag.h; path = Response/RP_Tag.h; sourceTree = "<group>"; };
+		AF64DEF21A4FD75100E0C387 /* RP_Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RP_Tag.m; path = Response/RP_Tag.m; sourceTree = "<group>"; };
 		AF6641BD1A4DC40F0084E94A /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = CoreData/Image.h; sourceTree = "<group>"; };
 		AF6641BE1A4DC40F0084E94A /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Image.m; path = CoreData/Image.m; sourceTree = "<group>"; };
 		AF6641C01A4DC4750084E94A /* RP_Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RP_Image.h; path = Response/RP_Image.h; sourceTree = "<group>"; };
@@ -193,6 +199,8 @@
 			children = (
 				AF6641C01A4DC4750084E94A /* RP_Image.h */,
 				AF6641C11A4DC4750084E94A /* RP_Image.m */,
+				AF64DEF11A4FD75100E0C387 /* RP_Tag.h */,
+				AF64DEF21A4FD75100E0C387 /* RP_Tag.m */,
 				AF64DEEB1A4F9EBD00E0C387 /* RP_Location.h */,
 				AF64DEEC1A4F9EBD00E0C387 /* RP_Location.m */,
 			);
@@ -252,6 +260,8 @@
 			isa = PBXGroup;
 			children = (
 				AFE21F821A07E476000F9162 /* CoreData.xcdatamodeld */,
+				AF64DEEE1A4FBB4000E0C387 /* Tag.h */,
+				AF64DEEF1A4FBB4000E0C387 /* Tag.m */,
 				AF64DEE81A4F9E9000E0C387 /* Location.h */,
 				AF64DEE91A4F9E9000E0C387 /* Location.m */,
 				AF6641BD1A4DC40F0084E94A /* Image.h */,
@@ -492,9 +502,11 @@
 				AF264A631A029D2200C7DBC3 /* LoginResponse.m in Sources */,
 				AF2890DB1A26B72F00EBCB63 /* RQToken.m in Sources */,
 				AFC7623E1A24ECA800303048 /* RPCollection.m in Sources */,
+				AF64DEF01A4FBB4000E0C387 /* Tag.m in Sources */,
 				AF6641BF1A4DC40F0084E94A /* Image.m in Sources */,
 				AFBAE0C51A1F120C00315912 /* CollectionMgr.m in Sources */,
 				AFED080119E366CC00397949 /* SplashScreenVC.m in Sources */,
+				AF64DEF31A4FD75100E0C387 /* RP_Tag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

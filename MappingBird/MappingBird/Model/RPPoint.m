@@ -9,6 +9,7 @@
 #import "RPPoint.h"
 #import "RP_Image.h"
 #import "RP_Location.h"
+#import "RP_Tag.h"
 
 @implementation RPPoint
 
@@ -16,8 +17,6 @@
     
     
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[RPPoint class]];
-
-    
     [mapping addAttributeMappingsFromArray:@[ @"collection",
                                               @"coordinates",
                                               @"create_time",
@@ -34,8 +33,7 @@
                                               ]];
     
     
-    
-    
+    // image
     RKObjectMapping* image = [RKObjectMapping mappingForClass:[RP_Image class] ];
     [image addAttributeMappingsFromArray:@[ @"id",
                                             @"url",
@@ -48,6 +46,7 @@
     [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"images" toKeyPath:@"images" withMapping:image]];
     
     
+    // location
     RKObjectMapping* location = [RKObjectMapping mappingForClass:[RP_Location class] ];
     [location addAttributeMappingsFromArray:@[ @"id",
                                             @"place_name",
@@ -58,10 +57,17 @@
                                             @"create_time",
                                             @"update_time"
                                             ]];
-    
 
     [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"location" toKeyPath:@"location" withMapping:location]];
 
+    // tag
+    RKObjectMapping* tag = [RKObjectMapping mappingForClass:[RP_Tag class] ];
+    [tag addAttributeMappingsFromArray:@[ @"id",
+                                          @"name"
+                                          ]];
+    
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"tags" toKeyPath:@"tags" withMapping:tag]];
+    
     
     return mapping;
 }
