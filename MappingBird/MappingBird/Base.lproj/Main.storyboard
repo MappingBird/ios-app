@@ -293,6 +293,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="sXK-Nb-3P0" kind="show" identifier="toPointDetail" id="brj-UJ-7qT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jbj-WR-jxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -316,6 +319,24 @@
             </objects>
             <point key="canvasLocation" x="954" y="3307"/>
         </scene>
+        <!--Point DetailVC-->
+        <scene sceneID="kj7-dP-6KS">
+            <objects>
+                <viewController id="sXK-Nb-3P0" customClass="PointDetailVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ho4-A8-HSL"/>
+                        <viewControllerLayoutGuide type="bottom" id="7kP-Fb-U4V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W1S-g9-GUI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BdA-Jq-8Ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2491" y="1898"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="6E0-eY-0Fc">
             <objects>
@@ -332,7 +353,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DEj-Wh-BU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1755" y="3313"/>
+            <point key="canvasLocation" x="2491" y="2561"/>
         </scene>
     </scenes>
     <resources>

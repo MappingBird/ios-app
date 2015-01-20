@@ -10,12 +10,13 @@
 #import "RESideMenu.h"
 #import "JPBFloatingTextViewController.h"
 #import <MapKit/MapKit.h>
+#import "PointDetailVC.h"
 
 @interface DEMOThirdViewController : JPBFloatingTextViewController
 
 - (IBAction)pushViewController:(id)sender;
 
 @property (nonatomic, strong) MKMapView *_mapView;
-@property(nonatomic) int currentPageIndex;
+@property(nonatomic) NSInteger currentPageIndex;
 
 @end

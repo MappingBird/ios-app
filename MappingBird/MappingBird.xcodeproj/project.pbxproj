@@ -29,7 +29,10 @@
 		AF6641C21A4DC4750084E94A /* RP_Image.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6641C11A4DC4750084E94A /* RP_Image.m */; };
 		AF69287F1A39F79600E6A635 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF69287E1A39F79600E6A635 /* Security.framework */; };
 		AF6928821A39FE6400E6A635 /* RPPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6928811A39FE6400E6A635 /* RPPoint.m */; };
+		AF732D1E1A6A45E000ECDEC6 /* PointDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF732D1D1A6A45E000ECDEC6 /* PointDetailVC.m */; };
 		AF7336791A298E6000EF98FC /* RPCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7336781A298E6000EF98FC /* RPCollections.m */; };
+		AF93BE471A62A5F0006A6A4F /* MBPointTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF93BE461A62A5F0006A6A4F /* MBPointTableViewCell.m */; };
+		AFAA8DF81A64E5CB00E48035 /* MBPointCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFAA8DF71A64E5CB00E48035 /* MBPointCellView.xib */; };
 		AFBAE0C01A1F0EDA00315912 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBAE0BF1A1F0EDA00315912 /* User.m */; };
 		AFBAE0C51A1F120C00315912 /* CollectionMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBAE0C41A1F120C00315912 /* CollectionMgr.m */; };
 		AFBAE0C81A1F174300315912 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBAE0C71A1F174300315912 /* Collection.m */; };
@@ -100,8 +103,13 @@
 		AF69287E1A39F79600E6A635 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AF6928801A39FE6400E6A635 /* RPPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RPPoint.h; path = Model/RPPoint.h; sourceTree = "<group>"; };
 		AF6928811A39FE6400E6A635 /* RPPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RPPoint.m; path = Model/RPPoint.m; sourceTree = "<group>"; };
+		AF732D1C1A6A45E000ECDEC6 /* PointDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointDetailVC.h; path = ViewController/PointDetailVC.h; sourceTree = "<group>"; };
+		AF732D1D1A6A45E000ECDEC6 /* PointDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointDetailVC.m; path = ViewController/PointDetailVC.m; sourceTree = "<group>"; };
 		AF7336771A298E6000EF98FC /* RPCollections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RPCollections.h; path = Model/RPCollections.h; sourceTree = "<group>"; };
 		AF7336781A298E6000EF98FC /* RPCollections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RPCollections.m; path = Model/RPCollections.m; sourceTree = "<group>"; };
+		AF93BE451A62A5F0006A6A4F /* MBPointTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBPointTableViewCell.h; path = CustomView/MBPointTableViewCell.h; sourceTree = "<group>"; };
+		AF93BE461A62A5F0006A6A4F /* MBPointTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBPointTableViewCell.m; path = CustomView/MBPointTableViewCell.m; sourceTree = "<group>"; };
+		AFAA8DF71A64E5CB00E48035 /* MBPointCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MBPointCellView.xib; path = TableCell/MBPointCellView.xib; sourceTree = "<group>"; };
 		AFBAE0BE1A1F0EDA00315912 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = CoreData/User.h; sourceTree = "<group>"; };
 		AFBAE0BF1A1F0EDA00315912 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = CoreData/User.m; sourceTree = "<group>"; };
 		AFBAE0C31A1F120C00315912 /* CollectionMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionMgr.h; sourceTree = "<group>"; };
@@ -190,6 +198,8 @@
 				AFED07DF19E3658D00397949 /* RESideMenuRootVC.m */,
 				AFED07FF19E366CC00397949 /* SplashScreenVC.h */,
 				AFED080019E366CC00397949 /* SplashScreenVC.m */,
+				AF732D1C1A6A45E000ECDEC6 /* PointDetailVC.h */,
+				AF732D1D1A6A45E000ECDEC6 /* PointDetailVC.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -212,6 +222,16 @@
 			children = (
 			);
 			name = KeyChain;
+			sourceTree = "<group>";
+		};
+		AF93BE481A62A5F9006A6A4F /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				AF93BE451A62A5F0006A6A4F /* MBPointTableViewCell.h */,
+				AF93BE461A62A5F0006A6A4F /* MBPointTableViewCell.m */,
+				AFAA8DF71A64E5CB00E48035 /* MBPointCellView.xib */,
+			);
+			name = CustomView;
 			sourceTree = "<group>";
 		};
 		AFBAE0C91A1F198B00315912 /* ApiManager */ = {
@@ -301,6 +321,7 @@
 			children = (
 				AF6928771A39F5B900E6A635 /* KeyChain */,
 				AFE21F851A07E48C000F9162 /* CoreData */,
+				AF93BE481A62A5F9006A6A4F /* CustomView */,
 				AF1C798019E594B900CE8037 /* ViewController */,
 				AFED07DB19E3658D00397949 /* AppDelegate.h */,
 				AFED07DC19E3658D00397949 /* AppDelegate.m */,
@@ -425,6 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFAA8DF81A64E5CB00E48035 /* MBPointCellView.xib in Resources */,
 				AFED07E319E3658D00397949 /* Main.storyboard in Resources */,
 				AFED07E819E3658D00397949 /* LaunchScreen.xib in Resources */,
 				AFED07E519E3658D00397949 /* Images.xcassets in Resources */,
@@ -479,11 +501,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF4997E819F32F0300737552 /* DEMOFirstViewController.m in Sources */,
+				AF93BE471A62A5F0006A6A4F /* MBPointTableViewCell.m in Sources */,
 				AFED07E019E3658D00397949 /* RESideMenuRootVC.m in Sources */,
 				AF6641C21A4DC4750084E94A /* RP_Image.m in Sources */,
 				AF639A181A30B3A0008D5F87 /* PointData.m in Sources */,
 				AF60C7B519F96F3C005B2BEA /* LoginVC.m in Sources */,
 				AF3DCA771A46C85400C413A4 /* PointMgr.m in Sources */,
+				AF732D1E1A6A45E000ECDEC6 /* PointDetailVC.m in Sources */,
 				AFBAE0C81A1F174300315912 /* Collection.m in Sources */,
 				AF264A691A02A01200C7DBC3 /* LoginRequest.m in Sources */,
 				AF6928821A39FE6400E6A635 /* RPPoint.m in Sources */,

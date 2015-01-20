@@ -7,6 +7,7 @@
 //
 
 #import "DEMOThirdViewController.h"
+#import "MBPointTableViewCell.h"
 
 static CGRect MapOriginalFrame;
 static CGFloat offset = -50.0f;
@@ -71,7 +72,7 @@ NSArray *fakeTitles4;
     self._mapView = [[MKMapView alloc] initWithFrame:MapOriginalFrame];
     [self.view insertSubview:self._mapView aboveSubview:self.tableView];
     
-    NSLog(@"currentPageIndex : %d", _currentPageIndex);
+//    NSLog(@"currentPageIndex : %d", _currentPageIndex);
     
     fakeTitles1 = @[
                     @"FABRICA 椅子咖啡",
@@ -114,24 +115,56 @@ NSArray *fakeTitles4;
 }
 
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"toPointDetail" sender:self];
+    
+//    PointDetailVC *secondViewController = [[PointDetailVC alloc] init];
+//    secondViewController.data = _label.text;
+//    secondViewController.delegate = self;
+//    [self.navigationController pushViewController:secondViewController animated:YES];
+}
 
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"toPointDetail"]) {
+
+        if([[segue destinationViewController] isKindOfClass:[PointDetailVC class]] ){
+            
+        }
+    }
+}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"Cell";
+    NSString *cellIdentifier = @"MBPointCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-        cell.textLabel.textColor = [UIColor blackColor];
-        cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
-        cell.selectedBackgroundView = [[UIView alloc] init];
+    MBPointTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if(!cell){
+        [tableView registerNib:[UINib nibWithNibName:@"MBPointCellView" bundle:nil] forCellReuseIdentifier:cellIdentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"MBPointCell"];
     }
+    
+            cell.backgroundColor = [UIColor clearColor];
+            cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
+            cell.textLabel.textColor = [UIColor blackColor];
+
+    
+    
+//    
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+//        cell.backgroundColor = [UIColor clearColor];
+//        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
+//        cell.textLabel.textColor = [UIColor blackColor];
+//        cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
+//        cell.selectedBackgroundView = [[UIView alloc] init];
+//    }
     
 //    NSArray *fakeTitles1 = @[@"大稻埕的老宅星巴克",
 //                             @"花花，甲飽沒",
@@ -169,6 +202,17 @@ NSArray *fakeTitles4;
         [images addObject:imageName];
     }
     cell.textLabel.text = images[indexPath.row];
+    
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *imgURL = @"http://blogs-images.forbes.com/antonyleather/files/2014/09/iphone-6-camera.jpg";
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgURL]];
+        
+        //set your image on main thread.
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [cell.cellImage setImage:[UIImage imageWithData:data]];
+        });    
+    });
     
     return cell;
 }

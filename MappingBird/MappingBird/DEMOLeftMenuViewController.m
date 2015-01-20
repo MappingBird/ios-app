@@ -108,6 +108,10 @@
     DEMOThirdViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"thirdViewController"];
 
     viewController.currentPageIndex = indexPath.row;
+
+//    NSLog(@"indexPath.row : %ld", (long)indexPath.section);
+        Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    NSLog(@"indexPath.row : %@", collection.name);
     
     [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:viewController]
                                                  animated:YES];
@@ -159,6 +163,7 @@
 {
     
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:sectionIndex];
+    
     return [sectionInfo numberOfObjects];
     
 }
@@ -182,7 +187,7 @@
     NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty",
                         @"IconHome", @"IconHome", @"IconHome"];
 
-        Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = collection.name;
     

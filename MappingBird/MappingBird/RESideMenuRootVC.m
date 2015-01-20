@@ -56,6 +56,7 @@
     // Create and configure a fetch request with the Book entity.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"PointData" inManagedObjectContext:[appDelegate managedObjectContext]];
+
     [fetchRequest setEntity:entity];
     
     // Create the sort descriptors array.
@@ -135,7 +136,7 @@
                                    executeFetchRequest:request error:&error]mutableCopy];
     
     for (User* user in returnObjs) {
-        if([user.token length] !=0 )
+        if([user.token length] != 0 )
             return user.token;
     }
     
