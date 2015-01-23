@@ -33,6 +33,8 @@
 		AF7336791A298E6000EF98FC /* RPCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7336781A298E6000EF98FC /* RPCollections.m */; };
 		AF93BE471A62A5F0006A6A4F /* MBPointTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF93BE461A62A5F0006A6A4F /* MBPointTableViewCell.m */; };
 		AFAA8DF81A64E5CB00E48035 /* MBPointCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFAA8DF71A64E5CB00E48035 /* MBPointCellView.xib */; };
+		AFABC9241A6E8F2A0059D35A /* QMBParallaxScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFABC9211A6E8F2A0059D35A /* QMBParallaxScrollViewController.m */; };
+		AFABC9251A6E8F2A0059D35A /* UIViewController+QMBParallaxScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFABC9231A6E8F2A0059D35A /* UIViewController+QMBParallaxScrollViewController.m */; };
 		AFBAE0C01A1F0EDA00315912 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBAE0BF1A1F0EDA00315912 /* User.m */; };
 		AFBAE0C51A1F120C00315912 /* CollectionMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBAE0C41A1F120C00315912 /* CollectionMgr.m */; };
 		AFBAE0C81A1F174300315912 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBAE0C71A1F174300315912 /* Collection.m */; };
@@ -110,6 +112,10 @@
 		AF93BE451A62A5F0006A6A4F /* MBPointTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBPointTableViewCell.h; path = CustomView/MBPointTableViewCell.h; sourceTree = "<group>"; };
 		AF93BE461A62A5F0006A6A4F /* MBPointTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBPointTableViewCell.m; path = CustomView/MBPointTableViewCell.m; sourceTree = "<group>"; };
 		AFAA8DF71A64E5CB00E48035 /* MBPointCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MBPointCellView.xib; path = TableCell/MBPointCellView.xib; sourceTree = "<group>"; };
+		AFABC9201A6E8F2A0059D35A /* QMBParallaxScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QMBParallaxScrollViewController.h; path = ViewController/QMBParallaxScrollViewController.h; sourceTree = "<group>"; };
+		AFABC9211A6E8F2A0059D35A /* QMBParallaxScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QMBParallaxScrollViewController.m; path = ViewController/QMBParallaxScrollViewController.m; sourceTree = "<group>"; };
+		AFABC9221A6E8F2A0059D35A /* UIViewController+QMBParallaxScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+QMBParallaxScrollViewController.h"; path = "ViewController/UIViewController+QMBParallaxScrollViewController.h"; sourceTree = "<group>"; };
+		AFABC9231A6E8F2A0059D35A /* UIViewController+QMBParallaxScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+QMBParallaxScrollViewController.m"; path = "ViewController/UIViewController+QMBParallaxScrollViewController.m"; sourceTree = "<group>"; };
 		AFBAE0BE1A1F0EDA00315912 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = CoreData/User.h; sourceTree = "<group>"; };
 		AFBAE0BF1A1F0EDA00315912 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = CoreData/User.m; sourceTree = "<group>"; };
 		AFBAE0C31A1F120C00315912 /* CollectionMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionMgr.h; sourceTree = "<group>"; };
@@ -184,6 +190,7 @@
 		AF1C798019E594B900CE8037 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AFABC9261A6E8F510059D35A /* QMBParallaxScrollViewController */,
 				AF60C7B319F96F3C005B2BEA /* LoginVC.h */,
 				AF60C7B419F96F3C005B2BEA /* LoginVC.m */,
 				AF4997E219F32F0300737552 /* DEMOFirstViewController.h */,
@@ -232,6 +239,17 @@
 				AFAA8DF71A64E5CB00E48035 /* MBPointCellView.xib */,
 			);
 			name = CustomView;
+			sourceTree = "<group>";
+		};
+		AFABC9261A6E8F510059D35A /* QMBParallaxScrollViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AFABC9201A6E8F2A0059D35A /* QMBParallaxScrollViewController.h */,
+				AFABC9211A6E8F2A0059D35A /* QMBParallaxScrollViewController.m */,
+				AFABC9221A6E8F2A0059D35A /* UIViewController+QMBParallaxScrollViewController.h */,
+				AFABC9231A6E8F2A0059D35A /* UIViewController+QMBParallaxScrollViewController.m */,
+			);
+			name = QMBParallaxScrollViewController;
 			sourceTree = "<group>";
 		};
 		AFBAE0C91A1F198B00315912 /* ApiManager */ = {
@@ -515,6 +533,7 @@
 				AFED07DD19E3658D00397949 /* AppDelegate.m in Sources */,
 				AF4997EA19F32F0300737552 /* DEMOLeftMenuViewController.m in Sources */,
 				AF264A6C1A02A07D00C7DBC3 /* LoginManager.m in Sources */,
+				AFABC9251A6E8F2A0059D35A /* UIViewController+QMBParallaxScrollViewController.m in Sources */,
 				AFBAE0C01A1F0EDA00315912 /* User.m in Sources */,
 				AF64DEEA1A4F9E9000E0C387 /* Location.m in Sources */,
 				AF35104B1A22458D005476CE /* LoginUser.m in Sources */,
@@ -529,6 +548,7 @@
 				AF64DEF01A4FBB4000E0C387 /* Tag.m in Sources */,
 				AF6641BF1A4DC40F0084E94A /* Image.m in Sources */,
 				AFBAE0C51A1F120C00315912 /* CollectionMgr.m in Sources */,
+				AFABC9241A6E8F2A0059D35A /* QMBParallaxScrollViewController.m in Sources */,
 				AFED080119E366CC00397949 /* SplashScreenVC.m in Sources */,
 				AF64DEF31A4FD75100E0C387 /* RP_Tag.m in Sources */,
 			);

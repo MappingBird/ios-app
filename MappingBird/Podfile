@@ -4,3 +4,4 @@ pod 'RestKit', '~>  0.20.0'
 pod 'RESideMenu', '~> 4.0.7'
 pod "ParallaxBlur"
 pod "JNKeychain"
+pod 'KIImagePager', '~> 1.5.3'

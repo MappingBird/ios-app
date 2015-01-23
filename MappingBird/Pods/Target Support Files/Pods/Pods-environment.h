@@ -24,6 +24,12 @@
 #define COCOAPODS_VERSION_MINOR_JNKeychain 1
 #define COCOAPODS_VERSION_PATCH_JNKeychain 1
 
+// KIImagePager
+#define COCOAPODS_POD_AVAILABLE_KIImagePager
+#define COCOAPODS_VERSION_MAJOR_KIImagePager 1
+#define COCOAPODS_VERSION_MINOR_KIImagePager 5
+#define COCOAPODS_VERSION_PATCH_KIImagePager 3
+
 // ParallaxBlur
 #define COCOAPODS_POD_AVAILABLE_ParallaxBlur
 #define COCOAPODS_VERSION_MAJOR_ParallaxBlur 0

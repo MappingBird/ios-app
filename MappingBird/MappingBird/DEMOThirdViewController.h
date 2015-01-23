@@ -18,5 +18,6 @@
 
 @property (nonatomic, strong) MKMapView *_mapView;
 @property(nonatomic) NSInteger currentPageIndex;
+@property(nonatomic) NSString *currentTitle;
 
 @end

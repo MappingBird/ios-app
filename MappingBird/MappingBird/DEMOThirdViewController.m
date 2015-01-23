@@ -43,7 +43,6 @@ NSArray *fakeTitles4;
 
     }
     
-    
 }
 
 - (CGFloat)horizontalOffset{
@@ -61,10 +60,15 @@ NSArray *fakeTitles4;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 //    [self setHeaderImage:[UIImage imageNamed:@"meatballs.jpeg"]];
-    [self setTitleText:@"Taipei Restaurants (61)"];
-//    [self setSubtitleText:@"subtitle"];
+    [self setTitleText:_currentTitle];
+
+    //    [self setSubtitleText:@"subtitle"];
     [self setLabelBackgroundGradientColor:[UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.7f]];
     
+    
+    [self.navigationItem setTitle:_currentTitle];
+    
+
     
     MapOriginalFrame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2);
 //    CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);

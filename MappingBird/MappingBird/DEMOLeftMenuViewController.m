@@ -105,45 +105,21 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
     DEMOThirdViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"thirdViewController"];
 
     viewController.currentPageIndex = indexPath.row;
-
-//    NSLog(@"indexPath.row : %ld", (long)indexPath.section);
-        Collection *collection = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    NSLog(@"indexPath.row : %@", collection.name);
+    viewController.currentTitle = collection.name;
+    
     
     [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:viewController]
                                                  animated:YES];
-    
-    
-//    [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"thirdViewController"]]
-//                                                 animated:YES];
     
                                     
     [self.sideMenuViewController hideMenuViewController];
     
     
-//    switch (indexPath.row) {
-//        case 0:
-//            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"firstViewController"]]
-//                                                         animated:YES];
-//            [self.sideMenuViewController hideMenuViewController];
-//            break;
-//        case 1:
-//            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"secondViewController"]]
-//                                                         animated:YES];
-//            [self.sideMenuViewController hideMenuViewController];
-//            break;
-//            
-//        case 2:
-//            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"thirdViewController"]]
-//                                                         animated:YES];
-//            [self.sideMenuViewController hideMenuViewController];
-//            break;
-//        default:
-//            break;
-//    }
+
 }
 
 #pragma mark -

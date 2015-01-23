@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-KIImagePager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ParallaxBlur.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,52 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>152DB5EA1000EA027DCABBD8</key>
+		<key>18B46B39DE983000A6BE5066</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>181D77801815469D08566E1B</key>
+		<key>1A47589330DA6CE2AF53475D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42E2E87DEE25896FD260673E</key>
+		<key>48296C4644550E3716F62FA5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8164382F60A4EB89D1BDE671</key>
+		<key>4EB30A57C379A67764CFBA46</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85E5BA20FC5E92E620AA49B1</key>
+		<key>64DA5C0452F8AD4A6E4CFD9F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>894DE625DF434BA32569EB31</key>
+		<key>88A3923971798B78BEAB2F93</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8CEA957677D480EE46A086E7</key>
+		<key>96B94D2ED2866A46AAD3FAAE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96B9C00B0EAAA9B5527C2F52</key>
+		<key>9A4DC725F493C330392990FE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D146A37F46841D25725EA21F</key>
+		<key>B8DDE7310C9380348C2F1801</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D598F9916AB0729FFCE3335E</key>
+		<key>C6C662A72036936591D4CA4F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D14F89B7C4E0793B45EAB188</key>
 		<dict>
 			<key>primary</key>
 			<true/>

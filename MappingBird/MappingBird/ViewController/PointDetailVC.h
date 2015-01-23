@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QMBParallaxScrollViewController.h"
 
 @interface PointDetailVC : UIViewController
+
 
 @end

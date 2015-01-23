@@ -71,6 +71,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## KIImagePager
+
+LICENSE
+
 ## ParallaxBlur
 
 Copyright (c) 2014 pyro2927 <joseph@pintozzi.com>

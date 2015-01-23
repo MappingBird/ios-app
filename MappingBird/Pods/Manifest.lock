@@ -2,6 +2,7 @@ PODS:
   - AFNetworking (1.3.4)
   - FXBlurView (1.6.3)
   - JNKeychain (0.1.1)
+  - KIImagePager (1.5.3)
   - ParallaxBlur (0.1.4):
     - FXBlurView (~> 1.6.2)
   - RESideMenu (4.0.7)
@@ -25,6 +26,7 @@ PODS:
 
 DEPENDENCIES:
   - JNKeychain
+  - KIImagePager (~> 1.5.3)
   - ParallaxBlur
   - RESideMenu (~> 4.0.7)
   - RestKit (~> 0.20.0)
@@ -33,6 +35,7 @@ SPEC CHECKSUMS:
   AFNetworking: 80c4e0652b08eb34e25b9c0ff3c82556fe5967b4
   FXBlurView: abe1046285813c4f6e9008abbc324fc5ab32af90
   JNKeychain: 2a17bd938a538d50349df563f5b543b9e932045d
+  KIImagePager: 7cbbf13cca167832999ecfea35ce95f794fa62ba
   ParallaxBlur: 149ea077dec9264fc12bc04490cd05ff0e170e1d
   RESideMenu: a9c1cd2e64e60e1d3166ddac01a83e215a0e4d30
   RestKit: 7f9490e709ee745e166c4d2aa7a8d132831275b0
