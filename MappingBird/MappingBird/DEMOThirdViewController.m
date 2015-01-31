@@ -121,12 +121,14 @@ NSArray *fakeTitles4;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"toPointDetail" sender:self];
-    
+//    [self performSegueWithIdentifier:@"toPointDetail" sender:self];
+
+        [self performSegueWithIdentifier:@"toPointView2" sender:self];
 //    PointDetailVC *secondViewController = [[PointDetailVC alloc] init];
 //    secondViewController.data = _label.text;
 //    secondViewController.delegate = self;
 //    [self.navigationController pushViewController:secondViewController animated:YES];
+    //        controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ParallaxPhotoViewController"];
 }
 
 

@@ -26,9 +26,9 @@
 
 // KIImagePager
 #define COCOAPODS_POD_AVAILABLE_KIImagePager
-#define COCOAPODS_VERSION_MAJOR_KIImagePager 1
-#define COCOAPODS_VERSION_MINOR_KIImagePager 5
-#define COCOAPODS_VERSION_PATCH_KIImagePager 3
+#define COCOAPODS_VERSION_MAJOR_KIImagePager 2
+#define COCOAPODS_VERSION_MINOR_KIImagePager 1
+#define COCOAPODS_VERSION_PATCH_KIImagePager 0
 
 // ParallaxBlur
 #define COCOAPODS_POD_AVAILABLE_ParallaxBlur

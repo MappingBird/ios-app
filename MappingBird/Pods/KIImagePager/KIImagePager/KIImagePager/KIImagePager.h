@@ -9,21 +9,25 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+typedef void(^KIImagePagerImageRequestBlock)(UIImage*image, NSError * error);
+
 @class KIImagePager;
 
+#pragma mark  - Data source
 @protocol KIImagePagerDataSource <NSObject>
 
 @required
-- (NSArray *) arrayWithImages;
-- (UIViewContentMode) contentModeForImage:(NSUInteger)image;
+- (NSArray *) arrayWithImages:(KIImagePager*)pager;
+- (UIViewContentMode) contentModeForImage:(NSUInteger)image inPager:(KIImagePager*)pager;
 
 @optional
-- (UIImage *) placeHolderImageForImagePager;
-- (NSString *) captionForImageAtIndex:(NSUInteger)index;
-- (UIViewContentMode) contentModeForPlaceHolder;
+- (UIImage *) placeHolderImageForImagePager:(KIImagePager*)pager;
+- (NSString *) captionForImageAtIndex:(NSUInteger)index  inPager:(KIImagePager*)pager;
+- (UIViewContentMode) contentModeForPlaceHolder:(KIImagePager*)pager;
 
 @end
 
+#pragma mark  - Delegate
 @protocol KIImagePagerDelegate <NSObject>
 
 @optional
@@ -32,11 +36,22 @@
 
 @end
 
+#pragma mark  - Image source
+
+@protocol KIImagePagerImageSource <NSObject>
+
+-(void) imageWithUrl:(NSURL*)url completion:(KIImagePagerImageRequestBlock)completion;
+
+@end
+
+
 @interface KIImagePager : UIView
 
 // Delegate and Datasource
 @property (weak) IBOutlet id <KIImagePagerDataSource> dataSource;
 @property (weak) IBOutlet id <KIImagePagerDelegate> delegate;
+@property (weak) IBOutlet id <KIImagePagerImageSource> imageSource;
+
 
 // General
 @property (nonatomic) UIViewContentMode contentMode;

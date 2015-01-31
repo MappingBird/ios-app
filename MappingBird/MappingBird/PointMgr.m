@@ -70,7 +70,7 @@
                       
 
                   } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                      if(DEBUG){NSLog(@"fail to get collections, network error");}
+//                      if(DEBUG){NSLog(@"fail to get collections, network error");}
                       
                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                       message:@"Oops...\nPlease try again later"

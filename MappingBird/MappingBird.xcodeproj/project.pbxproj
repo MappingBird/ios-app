@@ -14,6 +14,17 @@
 		AF2890DB1A26B72F00EBCB63 /* RQToken.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2890DA1A26B72F00EBCB63 /* RQToken.m */; };
 		AF35104B1A22458D005476CE /* LoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AF35104A1A22458D005476CE /* LoginUser.m */; };
 		AF3DCA771A46C85400C413A4 /* PointMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3DCA761A46C85400C413A4 /* PointMgr.m */; };
+		AF40E7391A737FF000B6F73A /* ParallaxMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF40E7361A737FF000B6F73A /* ParallaxMapViewController.m */; };
+		AF40E73A1A737FF000B6F73A /* ParallaxPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF40E7381A737FF000B6F73A /* ParallaxPhotoViewController.m */; };
+		AF40E73F1A73806D00B6F73A /* SamplePhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF40E73C1A73806D00B6F73A /* SamplePhotoBrowserViewController.m */; };
+		AF40E7401A73806D00B6F73A /* SampleScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF40E73E1A73806D00B6F73A /* SampleScrollViewController.m */; };
+		AF40E74A1A7381B300B6F73A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF40E7431A7381B300B6F73A /* 1.jpg */; };
+		AF40E74B1A7381B300B6F73A /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF40E7441A7381B300B6F73A /* 2.jpg */; };
+		AF40E74C1A7381B300B6F73A /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF40E7451A7381B300B6F73A /* 3.jpg */; };
+		AF40E74D1A7381B300B6F73A /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF40E7461A7381B300B6F73A /* 4.jpg */; };
+		AF40E74E1A7381B300B6F73A /* LICENCE in Resources */ = {isa = PBXBuildFile; fileRef = AF40E7471A7381B300B6F73A /* LICENCE */; };
+		AF40E74F1A7381B300B6F73A /* NGC6559.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF40E7481A7381B300B6F73A /* NGC6559.jpg */; };
+		AF40E7501A7381B300B6F73A /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = AF40E7491A7381B300B6F73A /* Thumbs.db */; };
 		AF4997E819F32F0300737552 /* DEMOFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4997E319F32F0300737552 /* DEMOFirstViewController.m */; };
 		AF4997E919F32F0300737552 /* DEMOSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4997E519F32F0300737552 /* DEMOSecondViewController.m */; };
 		AF4997EA19F32F0300737552 /* DEMOLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4997E719F32F0300737552 /* DEMOLeftMenuViewController.m */; };
@@ -77,6 +88,21 @@
 		AF35104A1A22458D005476CE /* LoginUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUser.m; path = Model/LoginUser.m; sourceTree = "<group>"; };
 		AF3DCA751A46C85400C413A4 /* PointMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointMgr.h; sourceTree = "<group>"; };
 		AF3DCA761A46C85400C413A4 /* PointMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointMgr.m; sourceTree = "<group>"; };
+		AF40E7351A737FF000B6F73A /* ParallaxMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParallaxMapViewController.h; path = ViewController/ParallaxMapViewController.h; sourceTree = "<group>"; };
+		AF40E7361A737FF000B6F73A /* ParallaxMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParallaxMapViewController.m; path = ViewController/ParallaxMapViewController.m; sourceTree = "<group>"; };
+		AF40E7371A737FF000B6F73A /* ParallaxPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParallaxPhotoViewController.h; path = ViewController/ParallaxPhotoViewController.h; sourceTree = "<group>"; };
+		AF40E7381A737FF000B6F73A /* ParallaxPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParallaxPhotoViewController.m; path = ViewController/ParallaxPhotoViewController.m; sourceTree = "<group>"; };
+		AF40E73B1A73806D00B6F73A /* SamplePhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SamplePhotoBrowserViewController.h; path = ViewController/SamplePhotoBrowserViewController.h; sourceTree = "<group>"; };
+		AF40E73C1A73806D00B6F73A /* SamplePhotoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SamplePhotoBrowserViewController.m; path = ViewController/SamplePhotoBrowserViewController.m; sourceTree = "<group>"; };
+		AF40E73D1A73806D00B6F73A /* SampleScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleScrollViewController.h; path = ViewController/SampleScrollViewController.h; sourceTree = "<group>"; };
+		AF40E73E1A73806D00B6F73A /* SampleScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleScrollViewController.m; path = ViewController/SampleScrollViewController.m; sourceTree = "<group>"; };
+		AF40E7431A7381B300B6F73A /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		AF40E7441A7381B300B6F73A /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		AF40E7451A7381B300B6F73A /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		AF40E7461A7381B300B6F73A /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		AF40E7471A7381B300B6F73A /* LICENCE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE; sourceTree = "<group>"; };
+		AF40E7481A7381B300B6F73A /* NGC6559.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NGC6559.jpg; sourceTree = "<group>"; };
+		AF40E7491A7381B300B6F73A /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
 		AF4997E219F32F0300737552 /* DEMOFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOFirstViewController.h; sourceTree = "<group>"; };
 		AF4997E319F32F0300737552 /* DEMOFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOFirstViewController.m; sourceTree = "<group>"; };
 		AF4997E419F32F0300737552 /* DEMOSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOSecondViewController.h; sourceTree = "<group>"; };
@@ -211,6 +237,28 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
+		AF40E7411A7381B300B6F73A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AF40E7421A7381B300B6F73A /* ParallaxBackgrounds */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AF40E7421A7381B300B6F73A /* ParallaxBackgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				AF40E7431A7381B300B6F73A /* 1.jpg */,
+				AF40E7441A7381B300B6F73A /* 2.jpg */,
+				AF40E7451A7381B300B6F73A /* 3.jpg */,
+				AF40E7461A7381B300B6F73A /* 4.jpg */,
+				AF40E7471A7381B300B6F73A /* LICENCE */,
+				AF40E7481A7381B300B6F73A /* NGC6559.jpg */,
+				AF40E7491A7381B300B6F73A /* Thumbs.db */,
+			);
+			path = ParallaxBackgrounds;
+			sourceTree = "<group>";
+		};
 		AF6641C31A4DC4810084E94A /* Response */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +292,14 @@
 		AFABC9261A6E8F510059D35A /* QMBParallaxScrollViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AF40E73B1A73806D00B6F73A /* SamplePhotoBrowserViewController.h */,
+				AF40E73C1A73806D00B6F73A /* SamplePhotoBrowserViewController.m */,
+				AF40E73D1A73806D00B6F73A /* SampleScrollViewController.h */,
+				AF40E73E1A73806D00B6F73A /* SampleScrollViewController.m */,
+				AF40E7351A737FF000B6F73A /* ParallaxMapViewController.h */,
+				AF40E7361A737FF000B6F73A /* ParallaxMapViewController.m */,
+				AF40E7371A737FF000B6F73A /* ParallaxPhotoViewController.h */,
+				AF40E7381A737FF000B6F73A /* ParallaxPhotoViewController.m */,
 				AFABC9201A6E8F2A0059D35A /* QMBParallaxScrollViewController.h */,
 				AFABC9211A6E8F2A0059D35A /* QMBParallaxScrollViewController.m */,
 				AFABC9221A6E8F2A0059D35A /* UIViewController+QMBParallaxScrollViewController.h */,
@@ -337,6 +393,7 @@
 		AFED07D619E3658D00397949 /* MappingBird */ = {
 			isa = PBXGroup;
 			children = (
+				AF40E7411A7381B300B6F73A /* Resources */,
 				AF6928771A39F5B900E6A635 /* KeyChain */,
 				AFE21F851A07E48C000F9162 /* CoreData */,
 				AF93BE481A62A5F9006A6A4F /* CustomView */,
@@ -464,10 +521,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF40E74E1A7381B300B6F73A /* LICENCE in Resources */,
+				AF40E74D1A7381B300B6F73A /* 4.jpg in Resources */,
+				AF40E74B1A7381B300B6F73A /* 2.jpg in Resources */,
 				AFAA8DF81A64E5CB00E48035 /* MBPointCellView.xib in Resources */,
 				AFED07E319E3658D00397949 /* Main.storyboard in Resources */,
 				AFED07E819E3658D00397949 /* LaunchScreen.xib in Resources */,
 				AFED07E519E3658D00397949 /* Images.xcassets in Resources */,
+				AF40E74C1A7381B300B6F73A /* 3.jpg in Resources */,
+				AF40E74A1A7381B300B6F73A /* 1.jpg in Resources */,
+				AF40E74F1A7381B300B6F73A /* NGC6559.jpg in Resources */,
+				AF40E7501A7381B300B6F73A /* Thumbs.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +588,7 @@
 				AF6641C21A4DC4750084E94A /* RP_Image.m in Sources */,
 				AF639A181A30B3A0008D5F87 /* PointData.m in Sources */,
 				AF60C7B519F96F3C005B2BEA /* LoginVC.m in Sources */,
+				AF40E7391A737FF000B6F73A /* ParallaxMapViewController.m in Sources */,
 				AF3DCA771A46C85400C413A4 /* PointMgr.m in Sources */,
 				AF732D1E1A6A45E000ECDEC6 /* PointDetailVC.m in Sources */,
 				AFBAE0C81A1F174300315912 /* Collection.m in Sources */,
@@ -537,12 +602,15 @@
 				AFBAE0C01A1F0EDA00315912 /* User.m in Sources */,
 				AF64DEEA1A4F9E9000E0C387 /* Location.m in Sources */,
 				AF35104B1A22458D005476CE /* LoginUser.m in Sources */,
+				AF40E73F1A73806D00B6F73A /* SamplePhotoBrowserViewController.m in Sources */,
 				AF7336791A298E6000EF98FC /* RPCollections.m in Sources */,
 				AF4997E919F32F0300737552 /* DEMOSecondViewController.m in Sources */,
+				AF40E7401A73806D00B6F73A /* SampleScrollViewController.m in Sources */,
 				AF64DEED1A4F9EBD00E0C387 /* RP_Location.m in Sources */,
 				AFED07DA19E3658D00397949 /* main.m in Sources */,
 				AF4997ED19F32F4700737552 /* DEMOThirdViewController.m in Sources */,
 				AF264A631A029D2200C7DBC3 /* LoginResponse.m in Sources */,
+				AF40E73A1A737FF000B6F73A /* ParallaxPhotoViewController.m in Sources */,
 				AF2890DB1A26B72F00EBCB63 /* RQToken.m in Sources */,
 				AFC7623E1A24ECA800303048 /* RPCollection.m in Sources */,
 				AF64DEF01A4FBB4000E0C387 /* Tag.m in Sources */,
