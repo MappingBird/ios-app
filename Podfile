@@ -1,0 +1,7 @@
+platform :ios, '8.0'
+# platform :osx, '10.7'
+pod 'RestKit', '~>  0.20.0'
+pod 'RESideMenu', '~> 4.0.7'
+pod 'ParallaxBlur'
+pod 'JNKeychain'
+pod 'KIImagePager', '~> 2.1.0'
