@@ -17,21 +17,35 @@
     
     
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[RPPoint class]];
-    [mapping addAttributeMappingsFromArray:@[ @"collection",
-                                              @"coordinates",
-                                              @"create_time",
-                                              @"descr",
-                                              @"id",
-                                              @"place_address",
-                                              @"place_name",
-                                              @"place_phone",
-                                              @"title",
-                                              @"type",
-                                              @"update_time",
-                                              @"url"
-                                              //@"images"
-                                              ]];
+//    [mapping addAttributeMappingsFromArray:@[ @"collection",
+//                                              @"coordinates",
+//                                              @"create_time",
+//                                              @"descr",
+//                                              @"id",
+//                                              @"place_address",
+//                                              @"place_name",
+//                                              @"place_phone",
+//                                              @"title",
+//                                              @"type",
+//                                              @"update_time",
+//                                              @"url"
+//                                              //@"images"
+//                                              ]];
     
+    [mapping addAttributeMappingsFromDictionary:@{
+                                                  @"collection": @"collection",
+                                                  @"coordinates": @"coordinates",
+                                                  @"create_time": @"create_time",
+                                                  @"description": @"descr",
+                                                  @"id": @"id",
+                                                  @"place_address": @"place_address",
+                                                  @"place_name": @"place_name",
+                                                  @"place_phone": @"place_phone",
+                                                  @"title": @"title",
+                                                  @"type": @"type",
+                                                  @"update_time": @"update_time",
+                                                  @"url": @"url"
+                                                  }];
     
     // image
     RKObjectMapping* image = [RKObjectMapping mappingForClass:[RP_Image class] ];

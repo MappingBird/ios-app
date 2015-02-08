@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RESideMenu.h"]
+#import "RESideMenu.h"
 #import <CoreData/CoreData.h>
 
 @interface RESideMenuRootVC  : RESideMenu <RESideMenuDelegate, NSFetchedResultsControllerDelegate>

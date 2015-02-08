@@ -7,7 +7,12 @@
 //
 
 #import "KIImagePager.h"
+#import "PointData.h"
 
 @interface SamplePhotoBrowserViewController : UIViewController<KIImagePagerDataSource, KIImagePagerDelegate>
+
+- (void) setPointData : (PointData*)data;
+- (void) setPointId:(NSNumber*) pointID;
+
 
 @end

@@ -89,10 +89,10 @@
 -(void) savePointToDB:(AppDelegate*)appDelegate withResponse:(NSArray*) response {
     
     NSError *error;
+
     
 //    for (RPPoint *data in response) {
 
-    
     RPPoint *data = [response objectAtIndex:0];
     
     NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id == %@", data.id];

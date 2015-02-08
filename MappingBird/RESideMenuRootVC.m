@@ -86,7 +86,9 @@
     
     RPCallback  callback = ^(void){
         
-        RPCallback  pointCallback = ^(void){};
+        RPCallback  pointCallback = ^(void){
+            // nothing to do;
+        };
 
         // get more details
             NSString *token = (NSString *)[JNKeychain loadValueForKey:MB_TOKEN];
@@ -94,7 +96,7 @@
         
             [[PointMgr alloc] UpdatePointByPid:[data.id stringValue] token:token callback:pointCallback appDelegate:appDelegate];
             
-            
+            // 節省時間，第一次取得全部後，就用 break 跳開
             break; // Need to remove
         }
     };

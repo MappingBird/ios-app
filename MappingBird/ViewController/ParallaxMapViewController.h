@@ -12,4 +12,6 @@
 
 - (IBAction) dismiss:(id)sender;
 
+- (void) setPointId:(NSNumber*) pointID;
+
 @end

@@ -7,19 +7,37 @@
 //
 
 #import "SamplePhotoBrowserViewController.h"
+#import "AppDelegate.h"
+#import "Image.h"
 
-@interface SamplePhotoBrowserViewController ()
+@interface SamplePhotoBrowserViewController (){
+        AppDelegate *appDelegate;
+}
 
 @property (nonatomic, strong) NSMutableArray *photos;
+@property (nonatomic, strong) PointData *pointData;
+@property (nonatomic, strong) NSNumber *pointID;
 
 @end
 
 @implementation SamplePhotoBrowserViewController
 
+- (void) setPointData:(PointData *)data{
+    _pointData = data;
+}
+
+- (void) setPointId:(NSNumber *)pointId{
+    _pointID = pointId;
+}
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
+    [super viewDidLoad];
+        appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+
+    [self getImages:_pointID];
+    
+    
 //    self.photos = [NSMutableArray array];
 //    [self.photos addObject:[UIImage imageNamed:@"NGC6559.jpg"]];
 //    [self.photos addObject:[UIImage imageNamed:@"1.jpg"]];
@@ -40,8 +58,33 @@
 //    });
     
     
-    [super viewDidLoad];
+
 }
+
+
+- (void) getImages : (NSNumber*) pointID{
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"point == %@", pointID];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:[appDelegate managedObjectContext]];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    [request setPredicate:predicate];
+    
+    
+    NSError *error;
+    NSArray *items = [[appDelegate managedObjectContext] executeFetchRequest:request error:&error];
+    
+    NSLog(@" image size : %lu", (unsigned long)items.count);
+    
+    self.photos = [NSMutableArray array];
+    for(Image *image in items){
+        [self.photos addObject:image.url];
+        break;
+    }
+    
+}
+
 
 - (UIViewContentMode) contentModeForImage:(NSUInteger)image inPager:(KIImagePager*)pager
 {
@@ -51,12 +94,12 @@
 - (NSArray *) arrayWithImages:(KIImagePager*)pager
 {
     
-    self.photos = [NSMutableArray array];
-    [self.photos addObject:[UIImage imageNamed:@"NGC6559.jpg"]];
-    [self.photos addObject:[UIImage imageNamed:@"1.jpg"]];
-    [self.photos addObject:[UIImage imageNamed:@"2.jpg"]];
-    [self.photos addObject:[UIImage imageNamed:@"3.jpg"]];
-    [self.photos addObject:[UIImage imageNamed:@"4.jpg"]];
+//    self.photos = [NSMutableArray array];
+//    [self.photos addObject:[UIImage imageNamed:@"NGC6559.jpg"]];
+//    [self.photos addObject:[UIImage imageNamed:@"1.jpg"]];
+//    [self.photos addObject:[UIImage imageNamed:@"2.jpg"]];
+//    [self.photos addObject:[UIImage imageNamed:@"3.jpg"]];
+//    [self.photos addObject:[UIImage imageNamed:@"4.jpg"]];
     return self.photos;
     
 //    return @[

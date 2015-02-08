@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     
-        appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     
     self.tableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 8) / 2.0f, self.view.frame.size.width, 54 * 8) style:UITableViewStylePlain];

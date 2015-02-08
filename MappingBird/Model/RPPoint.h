@@ -16,6 +16,7 @@
 @property (nonatomic, copy) NSString * coordinates;
 @property (nonatomic, copy) NSDate * create_time;
 @property (nonatomic, copy) NSString * descr;
+// 不能用 description 的原因是  NSObject 裡面已經有一個 description member
 @property (nonatomic, copy) NSNumber * id;
 @property (nonatomic, copy) NSString * place_address;
 @property (nonatomic, copy) NSString * place_name;
