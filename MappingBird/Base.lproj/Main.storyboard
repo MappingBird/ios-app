@@ -433,6 +433,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Get Direction"/>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1EJ-U7-0Qu">
+                                <rect key="frame" x="0.0" y="200" width="472" height="138"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.94856295619999997" alpha="1" colorSpace="calibratedWhite"/>
                         <userDefinedRuntimeAttributes>
@@ -444,6 +447,7 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="btnDirection" destination="dVE-xF-JAt" id="tlE-Q5-bWu"/>
+                        <outlet property="imageMap" destination="1EJ-U7-0Qu" id="rrc-wW-9em"/>
                         <outlet property="pointDescription" destination="3Om-w3-8Gu" id="sMN-8T-5d0"/>
                         <outlet property="pointTitle" destination="Ngw-cr-tzm" id="qZ6-Ne-csy"/>
                         <outlet property="scrollView" destination="PDP-kw-jqJ" id="q2Z-he-2tY"/>
