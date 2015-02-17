@@ -39,7 +39,7 @@
 
     self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
 
-    self.rightMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenuViewController"];
+//    self.rightMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenuViewController"];
 
     self.backgroundImage = [UIImage imageNamed:@"Stars"];
 
@@ -126,26 +126,22 @@
 
 
 -(NSString *) getToken {
-    // 設定從Core Data框架中取出Beverage的Entity
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"User"
                                    inManagedObjectContext:[appDelegate managedObjectContext]];
     [request setEntity:entity];
     NSError* error = nil;
-    //執行存取的指令並且將資料載入returnObjs
     NSMutableArray* returnObjs = [[[appDelegate managedObjectContext]
                                    executeFetchRequest:request error:&error]mutableCopy];
     
     for (User* user in returnObjs) {
-        if([user.token length] != 0 )
+        if([user.token length] != 0){
             return user.token;
+        }
     }
     
-    
     return @"";
-    
-    
 }
 
 

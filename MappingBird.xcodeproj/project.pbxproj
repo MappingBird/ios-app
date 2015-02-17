@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		62379D26401CC67D52DD07B9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8171459CC9D0C45EE4A68AB7 /* libPods.a */; };
+		AF2162741A9043400010550A /* MBDetailMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2162731A9043400010550A /* MBDetailMapVC.m */; };
+		AF2162771A9081CE0010550A /* MBPointPin.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2162761A9081CE0010550A /* MBPointPin.m */; };
 		AF264A631A029D2200C7DBC3 /* LoginResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AF264A621A029D2200C7DBC3 /* LoginResponse.m */; };
 		AF264A691A02A01200C7DBC3 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF264A681A02A01200C7DBC3 /* LoginRequest.m */; };
 		AF264A6C1A02A07D00C7DBC3 /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF264A6B1A02A07D00C7DBC3 /* LoginManager.m */; };
@@ -76,6 +78,10 @@
 		3067886C986A11E7A1EA1F39 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8171459CC9D0C45EE4A68AB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABDDA7FC1FD0E6C5A94B3DE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AF2162721A9043400010550A /* MBDetailMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBDetailMapVC.h; path = ViewController/MBDetailMapVC.h; sourceTree = "<group>"; };
+		AF2162731A9043400010550A /* MBDetailMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBDetailMapVC.m; path = ViewController/MBDetailMapVC.m; sourceTree = "<group>"; };
+		AF2162751A9081CE0010550A /* MBPointPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBPointPin.h; path = CustomView/MBPointPin.h; sourceTree = "<group>"; };
+		AF2162761A9081CE0010550A /* MBPointPin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBPointPin.m; path = CustomView/MBPointPin.m; sourceTree = "<group>"; };
 		AF264A611A029D2200C7DBC3 /* LoginResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginResponse.h; path = Model/LoginResponse.h; sourceTree = "<group>"; };
 		AF264A621A029D2200C7DBC3 /* LoginResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginResponse.m; path = Model/LoginResponse.m; sourceTree = "<group>"; };
 		AF264A671A02A01200C7DBC3 /* LoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginRequest.h; path = Model/LoginRequest.h; sourceTree = "<group>"; };
@@ -233,6 +239,8 @@
 				AFED080019E366CC00397949 /* SplashScreenVC.m */,
 				AF732D1C1A6A45E000ECDEC6 /* PointDetailVC.h */,
 				AF732D1D1A6A45E000ECDEC6 /* PointDetailVC.m */,
+				AF2162721A9043400010550A /* MBDetailMapVC.h */,
+				AF2162731A9043400010550A /* MBDetailMapVC.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -285,6 +293,8 @@
 				AF93BE451A62A5F0006A6A4F /* MBPointTableViewCell.h */,
 				AF93BE461A62A5F0006A6A4F /* MBPointTableViewCell.m */,
 				AFAA8DF71A64E5CB00E48035 /* MBPointCellView.xib */,
+				AF2162751A9081CE0010550A /* MBPointPin.h */,
+				AF2162761A9081CE0010550A /* MBPointPin.m */,
 			);
 			name = CustomView;
 			sourceTree = "<group>";
@@ -584,6 +594,7 @@
 			files = (
 				AF4997E819F32F0300737552 /* DEMOFirstViewController.m in Sources */,
 				AF93BE471A62A5F0006A6A4F /* MBPointTableViewCell.m in Sources */,
+				AF2162771A9081CE0010550A /* MBPointPin.m in Sources */,
 				AFED07E019E3658D00397949 /* RESideMenuRootVC.m in Sources */,
 				AF6641C21A4DC4750084E94A /* RP_Image.m in Sources */,
 				AF639A181A30B3A0008D5F87 /* PointData.m in Sources */,
@@ -617,6 +628,7 @@
 				AF6641BF1A4DC40F0084E94A /* Image.m in Sources */,
 				AFBAE0C51A1F120C00315912 /* CollectionMgr.m in Sources */,
 				AFABC9241A6E8F2A0059D35A /* QMBParallaxScrollViewController.m in Sources */,
+				AF2162741A9043400010550A /* MBDetailMapVC.m in Sources */,
 				AFED080119E366CC00397949 /* SplashScreenVC.m in Sources */,
 				AF64DEF31A4FD75100E0C387 /* RP_Tag.m in Sources */,
 			);

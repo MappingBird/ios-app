@@ -16,6 +16,7 @@
 #define MAPPING_BIRD_HOST @"https://mappingbird.com"
 #endif
 
+#define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
 #define MP_DEBUG_INFO  0
 #define DUPLICATE_COUNT  1

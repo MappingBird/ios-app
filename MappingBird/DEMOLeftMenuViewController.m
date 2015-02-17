@@ -110,6 +110,8 @@
 
     viewController.currentPageIndex = indexPath.row;
     viewController.currentTitle = collection.name;
+    viewController.collectionId = [collection.id integerValue];
+    
     
     
     [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:viewController]

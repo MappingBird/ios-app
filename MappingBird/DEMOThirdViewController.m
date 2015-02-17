@@ -8,14 +8,25 @@
 
 #import "DEMOThirdViewController.h"
 #import "MBPointTableViewCell.h"
+#import <RestKit/RestKit.h>
+#import "AppDelegate.h"
+#import "PointData.h"
+
+@interface DEMOThirdViewController()
+
+@property (nonatomic, strong) AppDelegate *appDelegate;
+@property (nonatomic, strong) NSArray *pointList;
+
+@end
+
 
 static CGRect MapOriginalFrame;
-static CGFloat offset = -50.0f;
 
 NSArray *fakeTitles1;
 NSArray *fakeTitles2;
 NSArray *fakeTitles3;
 NSArray *fakeTitles4;
+
 
 @implementation DEMOThirdViewController 
 - (IBAction)pushViewController:(id)sender{
@@ -58,6 +69,12 @@ NSArray *fakeTitles4;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    
+    _pointList = [self getPointList : _collectionId];
+    NSLog(@"%lu", (unsigned long)_pointList.count);
+
     // Do any additional setup after loading the view, typically from a nib.
 //    [self setHeaderImage:[UIImage imageNamed:@"meatballs.jpeg"]];
     [self setTitleText:_currentTitle];
@@ -156,13 +173,13 @@ NSArray *fakeTitles4;
         cell = [tableView dequeueReusableCellWithIdentifier:@"MBPointCell"];
     }
     
-            cell.backgroundColor = [UIColor clearColor];
-            cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-            cell.textLabel.textColor = [UIColor blackColor];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
+    cell.textLabel.textColor = [UIColor blackColor];
 
     
     
-//    
+//
 //    if (cell == nil) {
 //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
 //        cell.backgroundColor = [UIColor clearColor];
@@ -207,7 +224,15 @@ NSArray *fakeTitles4;
         NSString *imageName = [NSString stringWithFormat:@"%@", [fakeTitles objectAtIndex:i]];
         [images addObject:imageName];
     }
-    cell.textLabel.text = images[indexPath.row];
+    
+//    if(_pointList != nil && [_pointList count] == 0 ){
+    if(false){
+        PointData *point = [_pointList objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = point.title;
+    }else{
+        cell.textLabel.text = images[indexPath.row];
+    }
     
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -221,6 +246,27 @@ NSArray *fakeTitles4;
     });
     
     return cell;
+}
+
+
+
+
+- (NSArray*) getPointList : (NSInteger) collectionId{
+    
+    
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"collection == %@", [NSString stringWithFormat: @"%ld", (long)collectionId]];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PointData" inManagedObjectContext:[_appDelegate managedObjectContext]];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *items = [[_appDelegate managedObjectContext] executeFetchRequest:request error:&error];
+    
+    return items;
+    
 }
 
 

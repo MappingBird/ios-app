@@ -80,7 +80,7 @@
     self.photos = [NSMutableArray array];
     for(Image *image in items){
         [self.photos addObject:image.url];
-        break;
+        break; // Need to remove
     }
     
 }
