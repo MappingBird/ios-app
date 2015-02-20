@@ -13,6 +13,7 @@
 @property (nonatomic, assign) double latitude;
 @property (nonatomic, assign) double longitude;
 @property (nonatomic, assign) NSString *placeName;
+@property (nonatomic, assign) NSString *address;
 
 @end
 
@@ -25,6 +26,7 @@
     self.placeName = [json valueForKey:@"name"];
     self.latitude = [[json valueForKey:@"lat"] doubleValue];
     self.longitude = [[json valueForKey:@"lng"] doubleValue];
+    self.address = [json valueForKey:@"address"] ;
     return self;
 }
 
@@ -51,7 +53,11 @@
 // this will be shown as marker subtitle
 - (NSString *)subtitle
 {
-    return [NSString stringWithFormat:@"Lat: %.9f, Lng: %.9f", self.latitude, self.longitude];
+    if([self.address length] > 0){
+        return self.address;
+    }else {
+        return nil; // 不顯示
+    }
 }
 
 

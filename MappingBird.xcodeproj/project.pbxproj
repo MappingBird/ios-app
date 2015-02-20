@@ -44,6 +44,7 @@
 		AF6928821A39FE6400E6A635 /* RPPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6928811A39FE6400E6A635 /* RPPoint.m */; };
 		AF732D1E1A6A45E000ECDEC6 /* PointDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF732D1D1A6A45E000ECDEC6 /* PointDetailVC.m */; };
 		AF7336791A298E6000EF98FC /* RPCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7336781A298E6000EF98FC /* RPCollections.m */; };
+		AF7E14A81A9634EB0063C086 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7E14A71A9634EB0063C086 /* CoreLocation.framework */; };
 		AF93BE471A62A5F0006A6A4F /* MBPointTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF93BE461A62A5F0006A6A4F /* MBPointTableViewCell.m */; };
 		AFAA8DF81A64E5CB00E48035 /* MBPointCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFAA8DF71A64E5CB00E48035 /* MBPointCellView.xib */; };
 		AFABC9241A6E8F2A0059D35A /* QMBParallaxScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFABC9211A6E8F2A0059D35A /* QMBParallaxScrollViewController.m */; };
@@ -141,6 +142,7 @@
 		AF732D1D1A6A45E000ECDEC6 /* PointDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointDetailVC.m; path = ViewController/PointDetailVC.m; sourceTree = "<group>"; };
 		AF7336771A298E6000EF98FC /* RPCollections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RPCollections.h; path = Model/RPCollections.h; sourceTree = "<group>"; };
 		AF7336781A298E6000EF98FC /* RPCollections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RPCollections.m; path = Model/RPCollections.m; sourceTree = "<group>"; };
+		AF7E14A71A9634EB0063C086 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AF93BE451A62A5F0006A6A4F /* MBPointTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBPointTableViewCell.h; path = CustomView/MBPointTableViewCell.h; sourceTree = "<group>"; };
 		AF93BE461A62A5F0006A6A4F /* MBPointTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBPointTableViewCell.m; path = CustomView/MBPointTableViewCell.m; sourceTree = "<group>"; };
 		AFAA8DF71A64E5CB00E48035 /* MBPointCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MBPointCellView.xib; path = TableCell/MBPointCellView.xib; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF7E14A81A9634EB0063C086 /* CoreLocation.framework in Frameworks */,
 				AF69287F1A39F79600E6A635 /* Security.framework in Frameworks */,
 				AFE0B0981A014BF100C09D3A /* CoreData.framework in Frameworks */,
 				AF56DC6819F3585500C412E6 /* MapKit.framework in Frameworks */,
@@ -211,6 +214,7 @@
 		6ACC71F4A7BB18DA9D6048E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF7E14A71A9634EB0063C086 /* CoreLocation.framework */,
 				AF69287E1A39F79600E6A635 /* Security.framework */,
 				AFE0B0971A014BF100C09D3A /* CoreData.framework */,
 				AF56DC6719F3585500C412E6 /* MapKit.framework */,

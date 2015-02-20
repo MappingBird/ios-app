@@ -23,7 +23,6 @@
     
     self.mapView.delegate = self;
 
-    
     self.locationManager = [[CLLocationManager alloc] init];
     // Set a delegate to receive location callbacks
     self.locationManager.delegate = self;
@@ -40,7 +39,6 @@
     self.mapView.showsUserLocation = YES;
     
     
-    
     NSString *latitude;
     NSString *longitude;
     
@@ -48,13 +46,16 @@
         NSArray *coordinates = [_locationData.coordinates componentsSeparatedByString:@","];
         latitude = [coordinates objectAtIndex:0];
         longitude = [coordinates objectAtIndex:1];
+        
+        [self setTitle:_locationData.place_name];
     }
     
     MBPointPin *place1 = [[MBPointPin alloc] initWithJSON:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                     _locationData.place_name, @"name",
-                                                     latitude, @"lat",
-                                                     longitude, @"lng",
-                                                     nil]];
+                                                           _locationData.place_name, @"name",
+                                                           _locationData.place_address, @"address",
+                                                           latitude, @"lat",
+                                                           longitude, @"lng",
+                                                           nil]];
     
     
     NSArray *places = @[place1];
@@ -65,6 +66,12 @@
     
     // NOTE: if doesn't call this method, no marker will be shown
     [self.mapView addAnnotations:places];
+
+
+    // 設定之後，callout 就固定在螢幕上，不會消失
+//    if(places.count == 1){
+//        [self.mapView selectAnnotation:[places lastObject] animated:YES];
+//    }
     
     
     // Do any additional setup after loading the view.
@@ -83,6 +90,7 @@
         
     } else if ([annotations count] == 1) {
         id <MKAnnotation> annotation = [annotations lastObject];
+
         region = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 1000, 1000);
         
     } else {
