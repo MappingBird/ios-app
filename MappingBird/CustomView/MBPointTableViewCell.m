@@ -8,6 +8,9 @@
 
 #import "MBPointTableViewCell.h"
 
+@interface MBPointTableViewCell()
+@end
+
 @implementation MBPointTableViewCell
 
 - (void)awakeFromNib {

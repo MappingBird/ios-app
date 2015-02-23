@@ -14,9 +14,7 @@
 #import <MapKit/MapKit.h>
 #import "MBDetailMapVC.h"
 
-@interface SampleScrollViewController (){
-
-}
+@interface SampleScrollViewController ()
 
 
 @property (weak, nonatomic) IBOutlet UILabel *pointTitle;
@@ -29,6 +27,8 @@
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic, strong) Location *location;
+
+
 
 @end
 
@@ -70,10 +70,15 @@
         }
     }
     
-    [_btnDirection addTarget:self
-                      action:@selector(handleButtonClicked:)
-            forControlEvents:UIControlEventTouchUpInside
-     ];
+//    [_btnDirection addTarget:self
+//                      action:@selector(handleButtonClicked:)
+//            forControlEvents:UIControlEventTouchUpInside
+//     ];
+    
+    
+    UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleButtonClicked:)];
+    [singleTap setNumberOfTapsRequired:1];
+    [self.imageMap addGestureRecognizer:singleTap];
     
 //    self.btnDirection.layer.borderColor = [UIColor blackColor].CGColor;
 //    
@@ -84,7 +89,7 @@
 }
 
 
-- (Location*) getLocation : (NSInteger*) pointID{
+- (Location*) getLocation : (NSInteger) pointID{
     
     if(_appDelegate != nil){
         
@@ -152,6 +157,8 @@
 
 - (void) handleButtonClicked:(id)sender {
 
+    [self jumpToMapPage];
+    
     // 跳到 Apple Map，參考：
     // http://stackoverflow.com/questions/12504294/programmatically-open-maps-app-in-ios-6
 
@@ -181,6 +188,10 @@
             
         }
     }
+}
+
+- (void) jumpToMapPage {
+     [self performSegueWithIdentifier:@"toMapPage" sender:self];
 }
 
 

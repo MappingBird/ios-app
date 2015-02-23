@@ -14,6 +14,12 @@
 #import "JNKeychain.h"
 #import "Constants.h"
 
+@interface SplashScreenVC ()
+
+@property (nonatomic, strong) AppDelegate *appDelegate;
+
+@end
+
 
 @implementation SplashScreenVC
 
@@ -21,7 +27,7 @@
 {
     [super viewDidLoad];
     
-    appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    _appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     
 
     // 移除程式，不會把 Keychain 的資料移除，所以這邊不能用
@@ -58,11 +64,11 @@
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"User"
-                                   inManagedObjectContext:[appDelegate managedObjectContext]];
+                                   inManagedObjectContext:[_appDelegate managedObjectContext]];
     [request setEntity:entity];
     NSError* error = nil;
     //執行存取的指令並且將資料載入returnObjs
-    NSMutableArray* returnObjs = [[[appDelegate managedObjectContext]
+    NSMutableArray* returnObjs = [[[_appDelegate managedObjectContext]
                                    executeFetchRequest:request error:&error]mutableCopy];
     
     for (User* user in returnObjs) {

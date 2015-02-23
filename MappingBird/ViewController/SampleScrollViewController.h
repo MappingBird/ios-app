@@ -16,7 +16,10 @@
 
 - (IBAction)closeButtonTouchUpInside:(id)sender;
 
+
 - (void) setPointId:(NSNumber*) pointID;
 - (void) setPointData:(PointData*) pointData;
+
+
 
 @end

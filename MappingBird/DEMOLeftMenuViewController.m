@@ -14,10 +14,9 @@
 #import "AppDelegate.h"
 #import "Collection.h"
 
-@interface DEMOLeftMenuViewController (){
-        AppDelegate *appDelegate;
-}
+@interface DEMOLeftMenuViewController()
 
+@property (nonatomic, strong) AppDelegate *appDelegate;
 @property (strong, readwrite, nonatomic) UITableView *tableView;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
@@ -30,7 +29,7 @@
 {
     [super viewDidLoad];
     
-    appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    _appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     
     self.tableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 8) / 2.0f, self.view.frame.size.width, 54 * 8) style:UITableViewStylePlain];
@@ -76,7 +75,7 @@
     
     // Create and configure a fetch request with the Book entity.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Collection" inManagedObjectContext:[appDelegate managedObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Collection" inManagedObjectContext:[_appDelegate managedObjectContext]];
     [fetchRequest setEntity:entity];
     
     // Create the sort descriptors array.
@@ -87,7 +86,7 @@
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     // Create and initialize the fetch results controller.
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[appDelegate managedObjectContext] sectionNameKeyPath:@"name" cacheName:@"Root"];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[_appDelegate managedObjectContext] sectionNameKeyPath:@"name" cacheName:@"Root"];
     
     //delete the cache before set the new predicate:
     [NSFetchedResultsController deleteCacheWithName:nil];
@@ -110,7 +109,7 @@
 
     viewController.currentPageIndex = indexPath.row;
     viewController.currentTitle = collection.name;
-    viewController.collectionId = [collection.id integerValue];
+    viewController.collectionId = [(NSNumber*)collection.id integerValue];
     
     
     
@@ -119,8 +118,6 @@
     
                                     
     [self.sideMenuViewController hideMenuViewController];
-    
-    
 
 }
 

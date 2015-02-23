@@ -8,9 +8,6 @@
 
 #import "DEMOFirstViewController.h"
 
-@interface DEMOFirstViewController ()
-
-@end
 
 @implementation DEMOFirstViewController
 

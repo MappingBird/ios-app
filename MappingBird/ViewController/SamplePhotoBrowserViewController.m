@@ -10,10 +10,9 @@
 #import "AppDelegate.h"
 #import "Image.h"
 
-@interface SamplePhotoBrowserViewController (){
-        AppDelegate *appDelegate;
-}
+@interface SamplePhotoBrowserViewController ()
 
+@property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic, strong) NSMutableArray *photos;
 @property (nonatomic, strong) PointData *pointData;
 @property (nonatomic, strong) NSNumber *pointID;
@@ -33,7 +32,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-        appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    _appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
 
     [self getImages:_pointID];
     
@@ -65,7 +64,7 @@
 - (void) getImages : (NSNumber*) pointID{
     NSPredicate *predicate =[NSPredicate predicateWithFormat:@"point == %@", pointID];
     
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:[appDelegate managedObjectContext]];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:[_appDelegate managedObjectContext]];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
@@ -73,7 +72,7 @@
     
     
     NSError *error;
-    NSArray *items = [[appDelegate managedObjectContext] executeFetchRequest:request error:&error];
+    NSArray *items = [[_appDelegate managedObjectContext] executeFetchRequest:request error:&error];
     
     NSLog(@" image size : %lu", (unsigned long)items.count);
     

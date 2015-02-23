@@ -13,9 +13,10 @@
 #import "AppDelegate.h"
 #import "User.h"
 
-@interface LoginVC () <UITextFieldDelegate>{
-    AppDelegate *appDelegate;
-}
+@interface LoginVC () <UITextFieldDelegate>
+
+
+@property (nonatomic, strong) AppDelegate *appDelegate;
 @property (weak, nonatomic) IBOutlet UITextField *tf_Email;
 @property (weak, nonatomic) IBOutlet UITextField *tf_Password;
 
@@ -49,7 +50,7 @@
 
 -(void)viewDidLoad{
     
-    appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    _appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     
     [self loadData];
 }
@@ -90,7 +91,7 @@
     }
     
     
-    [[LoginManager alloc] LoginWithUserName:email password:password withCallback:callback withAppDelegate:appDelegate];
+    [[LoginManager alloc] LoginWithUserName:email password:password withCallback:callback withAppDelegate:_appDelegate];
     
     
 }
@@ -108,11 +109,11 @@
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"User"
-                                   inManagedObjectContext:[appDelegate managedObjectContext]];
+                                   inManagedObjectContext:[_appDelegate managedObjectContext]];
     [request setEntity:entity];
     NSError* error = nil;
     //執行存取的指令並且將資料載入returnObjs
-    NSMutableArray* returnObjs = [[[appDelegate managedObjectContext] executeFetchRequest:request error:&error]mutableCopy];
+    NSMutableArray* returnObjs = [[[_appDelegate managedObjectContext] executeFetchRequest:request error:&error]mutableCopy];
 
     NSLog(@"loadData : %lu", (unsigned long)[returnObjs count]);
     // 將資料倒入表格的資料來源之中

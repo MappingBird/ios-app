@@ -14,10 +14,9 @@
 #import "AppDelegate.h"
 #import <RestKit/RestKit.h>
 
-@interface ParallaxMapViewController (){
-    AppDelegate *appDelegate;
-}
+@interface ParallaxMapViewController ()
 
+@property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic, strong) NSNumber *mPointID;
 
 @end
@@ -31,7 +30,7 @@
 
 - (void)viewDidLoad{
     
-    appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    _appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     
     [super viewDidLoad];
     UIViewController *sampleMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
@@ -50,7 +49,7 @@
 - (void) getPointData : (NSNumber*) pointID{
     NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id == %@", pointID];
     
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PointData" inManagedObjectContext:[appDelegate managedObjectContext]];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PointData" inManagedObjectContext:[_appDelegate managedObjectContext]];
 
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
@@ -58,7 +57,7 @@
     
     
     NSError *error;
-    NSArray *items = [[appDelegate managedObjectContext] executeFetchRequest:request error:&error];
+    NSArray *items = [[_appDelegate managedObjectContext] executeFetchRequest:request error:&error];
     
     NSLog(@" heloowooo");
     NSLog(@" size : %lud", (unsigned long)items.count);

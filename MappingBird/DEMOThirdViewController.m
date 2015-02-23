@@ -11,11 +11,14 @@
 #import <RestKit/RestKit.h>
 #import "AppDelegate.h"
 #import "PointData.h"
+#import "ParallaxPhotoViewController.h"
 
 @interface DEMOThirdViewController()
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic, strong) NSArray *pointList;
+@property (nonatomic) NSInteger selectedItem;
+
 
 @end
 
@@ -38,21 +41,28 @@ NSArray *fakeTitles4;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    switch (_currentPageIndex) {
-        case 0:
-        default:
-            return [fakeTitles1 count];
-            break;
-            
-        case 1:
-            return [fakeTitles2 count];
-            break;
-            
-        case 2:
-            return [fakeTitles3 count];
-            break;
-
+//    switch (_currentPageIndex) {
+//        case 0:
+//        default:
+//            return [fakeTitles1 count];
+//            break;
+//            
+//        case 1:
+//            return [fakeTitles2 count];
+//            break;
+//            
+//        case 2:
+//            return [fakeTitles3 count];
+//            break;
+//
+//    }
+    
+    if(_pointList.count != 0){
+        return _pointList.count;
+    }else{
+        return 0;
     }
+    
     
 }
 
@@ -71,12 +81,11 @@ NSArray *fakeTitles4;
     [super viewDidLoad];
     
     _appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-    
+
     _pointList = [self getPointList : _collectionId];
-    NSLog(@"%lu", (unsigned long)_pointList.count);
 
     // Do any additional setup after loading the view, typically from a nib.
-//    [self setHeaderImage:[UIImage imageNamed:@"meatballs.jpeg"]];
+    //[self setHeaderImage:[UIImage imageNamed:@"meatballs.jpeg"]];
     [self setTitleText:_currentTitle];
 
     //    [self setSubtitleText:@"subtitle"];
@@ -84,8 +93,6 @@ NSArray *fakeTitles4;
     
     
     [self.navigationItem setTitle:_currentTitle];
-    
-
     
     MapOriginalFrame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2);
 //    CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
@@ -140,7 +147,10 @@ NSArray *fakeTitles4;
 {
 //    [self performSegueWithIdentifier:@"toPointDetail" sender:self];
 
-        [self performSegueWithIdentifier:@"toPointView2" sender:self];
+    _selectedItem = (NSInteger)indexPath.row;
+    [self performSegueWithIdentifier:@"toPointView2" sender:self];
+
+    
 //    PointDetailVC *secondViewController = [[PointDetailVC alloc] init];
 //    secondViewController.data = _label.text;
 //    secondViewController.delegate = self;
@@ -154,7 +164,13 @@ NSArray *fakeTitles4;
     if ([[segue identifier] isEqualToString:@"toPointDetail"]) {
 
         if([[segue destinationViewController] isKindOfClass:[PointDetailVC class]] ){
+
+        }
+    }else if ([[segue identifier] isEqualToString:@"toPointView2"]) {
+        if([[segue destinationViewController] isKindOfClass:[ParallaxPhotoViewController class]] ){
             
+            ParallaxPhotoViewController *destViewController = segue.destinationViewController;
+            destViewController.pointData = [_pointList objectAtIndex:_selectedItem];
         }
     }
 }
@@ -225,18 +241,17 @@ NSArray *fakeTitles4;
         [images addObject:imageName];
     }
     
-//    if(_pointList != nil && [_pointList count] == 0 ){
-    if(false){
-        PointData *point = [_pointList objectAtIndex:indexPath.row];
-        
-        cell.textLabel.text = point.title;
-    }else{
-        cell.textLabel.text = images[indexPath.row];
-    }
+    PointData *point = [_pointList objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = point.title;
     
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *imgURL = @"http://blogs-images.forbes.com/antonyleather/files/2014/09/iphone-6-camera.jpg";
+//        NSString *imgURL = @"http://blogs-images.forbes.com/antonyleather/files/2014/09/iphone-6-camera.jpg";
+        NSString *imgURL = point.url;
+        NSLog(@"imgURL : %@", imgURL);
+        imgURL = @"";
+        
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgURL]];
         
         //set your image on main thread.

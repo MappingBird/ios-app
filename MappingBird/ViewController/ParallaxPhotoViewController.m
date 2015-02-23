@@ -14,10 +14,9 @@
 #import <RestKit/RestKit.h>
 #import "PointData.h"
 
-@interface ParallaxPhotoViewController (){
-        AppDelegate *appDelegate;
-}
+@interface ParallaxPhotoViewController ()
 
+@property (nonatomic, strong) AppDelegate *appDelegate;
 
 @end
 
@@ -28,19 +27,21 @@
 {
     [super viewDidLoad];
 
-    appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    _appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     
-    PointData *data = [self getPointData :[NSNumber numberWithInt:11]];
+//    PointData *data = [self getPointData :[NSNumber numberWithInt:11]];
+    NSLog(@"point id : %@", (NSNumber*)_pointData.id);
+    PointData *data = [self getPointData :(NSNumber*)_pointData.id];
 
     [self setTitle:data.title];
     
     SamplePhotoBrowserViewController *topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SamplePhotoBrowserViewController"];
-    [topViewController setPointId:data.id];
+    [topViewController setPointId:(NSNumber*)_pointData.id];
     
     ((KIImagePager *)topViewController.view).slideshowTimeInterval = 0;
     
     SampleScrollViewController *bottomViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SampleScrollViewController"];
-    [bottomViewController setPointId:data.id];
+    [bottomViewController setPointId:(NSNumber*)_pointData.id];
     [bottomViewController setPointData:data];
     
     
@@ -56,14 +57,14 @@
 - (PointData*) getPointData : (NSNumber*) pointID{
     NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id == %@", pointID];
     
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PointData" inManagedObjectContext:[appDelegate managedObjectContext]];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PointData" inManagedObjectContext:[_appDelegate managedObjectContext]];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     [request setPredicate:predicate];
     
     NSError *error;
-    NSArray *items = [[appDelegate managedObjectContext] executeFetchRequest:request error:&error];
+    NSArray *items = [[_appDelegate managedObjectContext] executeFetchRequest:request error:&error];
     
     if(items.count == 1){
         return (PointData*)[items objectAtIndex : 0];;

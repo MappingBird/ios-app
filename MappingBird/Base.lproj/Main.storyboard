@@ -417,7 +417,7 @@
                                     <segue destination="aOx-WJ-oiz" kind="show" identifier="toMapPage" id="1Zw-Mq-NAx"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1EJ-U7-0Qu">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1EJ-U7-0Qu">
                                 <rect key="frame" x="0.0" y="231" width="472" height="138"/>
                             </imageView>
                         </subviews>
@@ -444,7 +444,7 @@
         <!--Detail MapVC-->
         <scene sceneID="yEL-SL-aTk">
             <objects>
-                <viewController storyboardIdentifier="MBDetailMapVC" id="aOx-WJ-oiz" customClass="MBDetailMapVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MBDetailMapVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aOx-WJ-oiz" customClass="MBDetailMapVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GrK-ku-u3O"/>
                         <viewControllerLayoutGuide type="bottom" id="qMg-uQ-GsI"/>

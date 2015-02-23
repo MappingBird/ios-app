@@ -7,8 +7,12 @@
 //
 
 #import "QMBParallaxScrollViewController.h"
+#import "PointData.h"
 
 @interface ParallaxPhotoViewController : QMBParallaxScrollViewController<QMBParallaxScrollViewControllerDelegate>
+
+
+@property(nonatomic) PointData* pointData;
 
 - (IBAction) dismiss:(id)sender;
 

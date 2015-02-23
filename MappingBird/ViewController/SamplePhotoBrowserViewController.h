@@ -11,7 +11,7 @@
 
 @interface SamplePhotoBrowserViewController : UIViewController<KIImagePagerDataSource, KIImagePagerDelegate>
 
-- (void) setPointData : (PointData*)data;
+- (void) setPointData:(PointData*)data;
 - (void) setPointId:(NSNumber*) pointID;
 
 

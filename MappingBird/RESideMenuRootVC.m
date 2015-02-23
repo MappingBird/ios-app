@@ -16,10 +16,9 @@
 #import "PointMgr.h"
 #import "PointData.h"
 
-@interface RESideMenuRootVC (){
-    AppDelegate *appDelegate;
-}
+@interface RESideMenuRootVC ()
 
+@property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
@@ -55,7 +54,7 @@
     
     // Create and configure a fetch request with the Book entity.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PointData" inManagedObjectContext:[appDelegate managedObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PointData" inManagedObjectContext:[_appDelegate managedObjectContext]];
 
     [fetchRequest setEntity:entity];
     
@@ -67,7 +66,7 @@
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     // Create and initialize the fetch results controller.
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[appDelegate managedObjectContext] sectionNameKeyPath:@"id" cacheName:@"Root"];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[_appDelegate managedObjectContext] sectionNameKeyPath:@"id" cacheName:@"Root"];
     
     //delete the cache before set the new predicate:
     [NSFetchedResultsController deleteCacheWithName:nil];
@@ -82,7 +81,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    _appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     
     RPCallback  callback = ^(void){
         
@@ -94,7 +93,7 @@
             NSString *token = (NSString *)[JNKeychain loadValueForKey:MB_TOKEN];
         for (PointData *data in [[self fetchedResultsController] fetchedObjects]) {
         
-            [[PointMgr alloc] UpdatePointByPid:[data.id stringValue] token:token callback:pointCallback appDelegate:appDelegate];
+            [[PointMgr alloc] UpdatePointByPid:[data.id stringValue] token:token callback:pointCallback appDelegate:_appDelegate];
             
             // 節省時間，第一次取得全部後，就用 break 跳開
             break; // Need to remove
@@ -106,7 +105,7 @@
     NSString *user_id = (NSString *)[JNKeychain loadValueForKey:MB_USER_ID];
     
     if((![token length] == 0) ){
-        [[CollectionMgr alloc] UpdateCollectionsByUserId:user_id token:token callback:callback appDelegate:appDelegate];
+        [[CollectionMgr alloc] UpdateCollectionsByUserId:user_id token:token callback:callback appDelegate:_appDelegate];
     }
     
     
@@ -129,10 +128,10 @@
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"User"
-                                   inManagedObjectContext:[appDelegate managedObjectContext]];
+                                   inManagedObjectContext:[_appDelegate managedObjectContext]];
     [request setEntity:entity];
     NSError* error = nil;
-    NSMutableArray* returnObjs = [[[appDelegate managedObjectContext]
+    NSMutableArray* returnObjs = [[[_appDelegate managedObjectContext]
                                    executeFetchRequest:request error:&error]mutableCopy];
     
     for (User* user in returnObjs) {

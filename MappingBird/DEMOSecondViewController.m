@@ -8,9 +8,7 @@
 
 #import "DEMOSecondViewController.h"
 
-@interface DEMOSecondViewController ()
 
-@end
 
 @implementation DEMOSecondViewController
 
