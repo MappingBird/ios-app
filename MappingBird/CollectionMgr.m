@@ -30,7 +30,7 @@
 
 @implementation CollectionMgr
 
--(void) UpdateCollectionsByUserId:(NSString*)userId token:(NSString*)token callback:(RPCallback) callback appDelegate:(AppDelegate*)appDelegate{
+-(void) UpdateCollectionsByUserId:(NSString*)userId token:(NSString*)token callback:(MPBCallback) callback appDelegate:(AppDelegate*)appDelegate{
     
     
     RQToken *dataObject = [[RQToken alloc] init];
@@ -232,7 +232,7 @@
 
 
 
--(void) GetCollectionInfo:(NSString*)collectionId token:(NSString*)token callback:(RPCallback) callback{
+-(void) GetCollectionInfo:(NSString*)collectionId token:(NSString*)token callback:(MPBCallback) callback{
     
 }
 

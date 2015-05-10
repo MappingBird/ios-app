@@ -45,7 +45,11 @@
     _appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     
     self.pointTitle.text = _pointData.title;
-    self.pointDescription.text = _pointData.descr;
+//    self.pointDescription.text = _pointData.descr;
+    
+    self.pointDescription.text = @"123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
+    
+    [self.pointDescription sizeToFit];
     
     _location = [self getLocation:(NSInteger)_pointData.id];
 
@@ -54,10 +58,6 @@
         NSArray *coordinates = [_location.coordinates componentsSeparatedByString:@","];
         NSString *latitude = [coordinates objectAtIndex:0];
         NSString *longitude = [coordinates objectAtIndex:1];
-        
-//        NSLog(@"_pointData is %@", _pointData.id);
-//        NSLog(@"latitude is %@", latitude);
-//        NSLog(@"longitude is %@", longitude);
         
         
         NSString *staticMapUrl = [NSString stringWithFormat:@"http://maps.google.com/maps/api/staticmap?markers=color:red|%@,%@&%@&sensor=true",latitude,longitude , @"zoom=17&size=680x200"];
@@ -79,12 +79,7 @@
     UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleButtonClicked:)];
     [singleTap setNumberOfTapsRequired:1];
     [self.imageMap addGestureRecognizer:singleTap];
-    
-//    self.btnDirection.layer.borderColor = [UIColor blackColor].CGColor;
-//    
-//    self.btnDirection.layer.borderWidth = 1.0;
-//    
-//    self.btnDirection.layer.cornerRadius = 10;
+
     
 }
 
@@ -93,7 +88,6 @@
     
     if(_appDelegate != nil){
         
-//        NSLog(@"_pointData is %zd", pointID);
         
         NSPredicate *predicate =[NSPredicate predicateWithFormat:@"point_id == %@", pointID];
         
@@ -106,8 +100,6 @@
         NSError *error;
         NSArray *items = [[_appDelegate managedObjectContext] executeFetchRequest:request error:&error];
         
-//        NSLog(@"location matched : %lu", (unsigned long)items.count);
-
         
         if(items.count == 1){
             return (Location*)[items objectAtIndex : 0];;

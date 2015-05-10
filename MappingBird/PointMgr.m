@@ -18,7 +18,7 @@
 @implementation PointMgr
 
 
--(void) UpdatePointByPid:(NSNumber*)pid token:(NSString*)token callback:(RPCallback) callback appDelegate:(AppDelegate*)appDelegate{
+-(void) UpdatePointByPid:(NSNumber*)pid token:(NSString*)token callback:(MPBCallback) callback appDelegate:(AppDelegate*)appDelegate{
     
     
     if(MP_DEBUG_INFO){
@@ -302,7 +302,7 @@
 }
 
 
--(void) GetPointInfo:(NSNumber*)pid token:(NSString*)token callback:(RPCallback) callback{
+-(void) GetPointInfo:(NSNumber*)pid token:(NSString*)token callback:(MPBCallback) callback{
     
 }
 

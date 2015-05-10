@@ -15,8 +15,8 @@
 
 
 
--(void) UpdateCollectionsByUserId:(NSString*)userId token:(NSString*)token callback:(RPCallback) callback appDelegate:(AppDelegate*)appDelegate;
+-(void) UpdateCollectionsByUserId:(NSString*)userId token:(NSString*)token callback:(MPBCallback) callback appDelegate:(AppDelegate*)appDelegate;
 
--(void) GetCollectionInfo:(NSString*)collectionId token:(NSString*)token callback:(RPCallback) callback;
+-(void) GetCollectionInfo:(NSString*)collectionId token:(NSString*)token callback:(MPBCallback) callback;
 
 @end

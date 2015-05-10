@@ -11,8 +11,8 @@
 
 @interface PointMgr : NSObject
 
--(void) UpdatePointByPid:(NSString*)pid token:(NSString*)token callback:(RPCallback) callback appDelegate:(AppDelegate*)appDelegate;
+-(void) UpdatePointByPid:(NSString*)pid token:(NSString*)token callback:(MPBCallback) callback appDelegate:(AppDelegate*)appDelegate;
 
--(void) GetPointInfo:(NSString*)pid token:(NSString*)token callback:(RPCallback) callback;
+-(void) GetPointInfo:(NSString*)pid token:(NSString*)token callback:(MPBCallback) callback;
 
 @end

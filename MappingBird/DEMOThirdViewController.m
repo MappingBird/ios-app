@@ -248,8 +248,10 @@ NSArray *fakeTitles4;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 //        NSString *imgURL = @"http://blogs-images.forbes.com/antonyleather/files/2014/09/iphone-6-camera.jpg";
+        
+        // 這邊的 URL 是 網址，不是 圖片的 URL
         NSString *imgURL = point.url;
-        NSLog(@"imgURL : %@", imgURL);
+        //NSLog(@"imgURL : %@", imgURL);
         imgURL = @"";
         
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgURL]];

@@ -15,6 +15,7 @@
 #import "Constants.h"
 #import "PointMgr.h"
 #import "PointData.h"
+#import "SVProgressHUD.h"
 
 @interface RESideMenuRootVC ()
 
@@ -83,14 +84,18 @@
     
     _appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     
-    RPCallback  callback = ^(void){
+    MPBCallback  callback = ^(void){
+
+        [SVProgressHUD show];
+        [SVProgressHUD setStatus:NSLocalizedStringFromTable(@"dialog_loading", @"common", nil)];
         
-        RPCallback  pointCallback = ^(void){
-            // nothing to do;
+        MPBCallback  pointCallback = ^(void){
+            [SVProgressHUD dismiss];
+            // nothing to do
         };
 
         // get more details
-            NSString *token = (NSString *)[JNKeychain loadValueForKey:MB_TOKEN];
+        NSString *token = (NSString *)[JNKeychain loadValueForKey:MB_TOKEN];
         for (PointData *data in [[self fetchedResultsController] fetchedObjects]) {
         
             [[PointMgr alloc] UpdatePointByPid:[data.id stringValue] token:token callback:pointCallback appDelegate:_appDelegate];
@@ -98,6 +103,7 @@
             // 節省時間，第一次取得全部後，就用 break 跳開
             break; // Need to remove
         }
+        
     };
     
     

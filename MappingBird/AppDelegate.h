@@ -16,7 +16,8 @@
 }
 
 
-typedef void (^RPCallback) (void);
+typedef void (^MPBCallback) (void);
+//typedef void (^MpbCallback) (void);
 
 // 增加Core Data的成員變數property定義
 @property (nonatomic, retain) NSManagedObjectContext *m_managedObjectContext;

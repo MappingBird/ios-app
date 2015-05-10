@@ -1,0 +1,9 @@
+/* 
+  common.strings
+  MappingBird
+
+  Created by Hill on 2015/5/10.
+  Copyright (c) 2015年 mitsw. All rights reserved.
+*/
+
+"dialog_loading" = "Loading";

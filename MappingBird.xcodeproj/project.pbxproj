@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		62379D26401CC67D52DD07B9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8171459CC9D0C45EE4A68AB7 /* libPods.a */; };
+		AF1C99491AD8ED5500D303C5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1C99481AD8ED5500D303C5 /* ViewController.m */; };
 		AF2162741A9043400010550A /* MBDetailMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2162731A9043400010550A /* MBDetailMapVC.m */; };
 		AF2162771A9081CE0010550A /* MBPointPin.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2162761A9081CE0010550A /* MBPointPin.m */; };
 		AF264A631A029D2200C7DBC3 /* LoginResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AF264A621A029D2200C7DBC3 /* LoginResponse.m */; };
 		AF264A691A02A01200C7DBC3 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF264A681A02A01200C7DBC3 /* LoginRequest.m */; };
 		AF264A6C1A02A07D00C7DBC3 /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF264A6B1A02A07D00C7DBC3 /* LoginManager.m */; };
 		AF2890DB1A26B72F00EBCB63 /* RQToken.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2890DA1A26B72F00EBCB63 /* RQToken.m */; };
+		AF2ACBA91AFF56E400083E97 /* common.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF2ACBA81AFF56E400083E97 /* common.strings */; };
 		AF35104B1A22458D005476CE /* LoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AF35104A1A22458D005476CE /* LoginUser.m */; };
 		AF3DCA771A46C85400C413A4 /* PointMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3DCA761A46C85400C413A4 /* PointMgr.m */; };
 		AF40E7391A737FF000B6F73A /* ParallaxMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF40E7361A737FF000B6F73A /* ParallaxMapViewController.m */; };
@@ -79,6 +81,8 @@
 		3067886C986A11E7A1EA1F39 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8171459CC9D0C45EE4A68AB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABDDA7FC1FD0E6C5A94B3DE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AF1C99471AD8ED5500D303C5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "ViewController/Introduce View/ViewController.h"; sourceTree = "<group>"; };
+		AF1C99481AD8ED5500D303C5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "ViewController/Introduce View/ViewController.m"; sourceTree = "<group>"; };
 		AF2162721A9043400010550A /* MBDetailMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBDetailMapVC.h; path = ViewController/MBDetailMapVC.h; sourceTree = "<group>"; };
 		AF2162731A9043400010550A /* MBDetailMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBDetailMapVC.m; path = ViewController/MBDetailMapVC.m; sourceTree = "<group>"; };
 		AF2162751A9081CE0010550A /* MBPointPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBPointPin.h; path = CustomView/MBPointPin.h; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 		AF264A6B1A02A07D00C7DBC3 /* LoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
 		AF2890D91A26B72F00EBCB63 /* RQToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RQToken.h; path = Model/RQToken.h; sourceTree = "<group>"; };
 		AF2890DA1A26B72F00EBCB63 /* RQToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RQToken.m; path = Model/RQToken.m; sourceTree = "<group>"; };
+		AF2ACBA81AFF56E400083E97 /* common.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = common.strings; path = lang/common.strings; sourceTree = "<group>"; };
 		AF3510491A22458D005476CE /* LoginUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUser.h; path = Model/LoginUser.h; sourceTree = "<group>"; };
 		AF35104A1A22458D005476CE /* LoginUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUser.m; path = Model/LoginUser.m; sourceTree = "<group>"; };
 		AF3DCA751A46C85400C413A4 /* PointMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointMgr.h; sourceTree = "<group>"; };
@@ -226,6 +231,7 @@
 		AF1C798019E594B900CE8037 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AF1C99461AD8EB5800D303C5 /* Introduce View */,
 				AFABC9261A6E8F510059D35A /* QMBParallaxScrollViewController */,
 				AF60C7B319F96F3C005B2BEA /* LoginVC.h */,
 				AF60C7B419F96F3C005B2BEA /* LoginVC.m */,
@@ -249,10 +255,20 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
+		AF1C99461AD8EB5800D303C5 /* Introduce View */ = {
+			isa = PBXGroup;
+			children = (
+				AF1C99471AD8ED5500D303C5 /* ViewController.h */,
+				AF1C99481AD8ED5500D303C5 /* ViewController.m */,
+			);
+			name = "Introduce View";
+			sourceTree = "<group>";
+		};
 		AF40E7411A7381B300B6F73A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				AF40E7421A7381B300B6F73A /* ParallaxBackgrounds */,
+				AF2ACBA81AFF56E400083E97 /* common.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -504,6 +520,7 @@
 				TargetAttributes = {
 					AFED07D319E3658D00397949 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = EDDM7PZUR8;
 					};
 					AFED07EC19E3658D00397949 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -542,6 +559,7 @@
 				AFED07E319E3658D00397949 /* Main.storyboard in Resources */,
 				AFED07E819E3658D00397949 /* LaunchScreen.xib in Resources */,
 				AFED07E519E3658D00397949 /* Images.xcassets in Resources */,
+				AF2ACBA91AFF56E400083E97 /* common.strings in Resources */,
 				AF40E74C1A7381B300B6F73A /* 3.jpg in Resources */,
 				AF40E74A1A7381B300B6F73A /* 1.jpg in Resources */,
 				AF40E74F1A7381B300B6F73A /* NGC6559.jpg in Resources */,
@@ -630,6 +648,7 @@
 				AFC7623E1A24ECA800303048 /* RPCollection.m in Sources */,
 				AF64DEF01A4FBB4000E0C387 /* Tag.m in Sources */,
 				AF6641BF1A4DC40F0084E94A /* Image.m in Sources */,
+				AF1C99491AD8ED5500D303C5 /* ViewController.m in Sources */,
 				AFBAE0C51A1F120C00315912 /* CollectionMgr.m in Sources */,
 				AFABC9241A6E8F2A0059D35A /* QMBParallaxScrollViewController.m in Sources */,
 				AF2162741A9043400010550A /* MBDetailMapVC.m in Sources */,
@@ -716,6 +735,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -753,6 +773,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -761,10 +782,14 @@
 			baseConfigurationReference = 3067886C986A11E7A1EA1F39 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = MappingBird/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -773,10 +798,14 @@
 			baseConfigurationReference = 9ABDDA7FC1FD0E6C5A94B3DE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = MappingBird/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
