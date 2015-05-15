@@ -53,14 +53,14 @@
         }else {
             // TODO : store in keychain
             
-            if ([JNKeychain saveValue:user.token forKey:MB_TOKEN]) {
-                NSLog(@"Correctly saved value '%@' for key '%@'", user.token, MB_TOKEN);
+            if ([JNKeychain saveValue:user.token forKey:MPB_TOKEN]) {
+                NSLog(@"Correctly saved value '%@' for key '%@'", user.token, MPB_TOKEN);
             } else {
                 NSLog(@"Failed to save!");
             }
             
-            if ([JNKeychain saveValue:user.id forKey:MB_USER_ID]) {
-                NSLog(@"Correctly saved value '%@' for key '%@'", user.token, MB_USER_ID);
+            if ([JNKeychain saveValue:user.id forKey:MPB_USER_ID]) {
+                NSLog(@"Correctly saved value '%@' for key '%@'", user.token, MPB_USER_ID);
             } else {
                 NSLog(@"Failed to save!");
             }
@@ -144,7 +144,7 @@
                        
                    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
                        
-                       if(DEBUG){NSLog(@"fail to login, network");}
+                       if(MP_DEBUG_INFO){NSLog(@"fail to login, network");}
                        
                        NSLog(@"It Failed: %@", error);
                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"

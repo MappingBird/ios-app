@@ -6,15 +6,14 @@
 //  Copyright (c) 2013 Roman Efimov. All rights reserved.
 //
 
-#import "DEMOLeftMenuViewController.h"
+#import "MainPageLeftMenuVC.h"
 #import "DEMOFirstViewController.h"
-#import "DEMOSecondViewController.h"
 #import "UIViewController+RESideMenu.h"
 #import "DEMOThirdViewController.h"
 #import "AppDelegate.h"
 #import "Collection.h"
 
-@interface DEMOLeftMenuViewController()
+@interface MainPageLeftMenuVC()
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
 @property (strong, readwrite, nonatomic) UITableView *tableView;
@@ -23,7 +22,7 @@
 
 @end
 
-@implementation DEMOLeftMenuViewController
+@implementation MainPageLeftMenuVC
 
 - (void)viewDidLoad
 {

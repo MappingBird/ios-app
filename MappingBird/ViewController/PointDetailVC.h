@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QMBParallaxScrollViewController.h"
+#import "PointData.h"
+#import "KIImagePager.h"
 
-@interface PointDetailVC : UIViewController
+@interface PointDetailVC : UIViewController <KIImagePagerDataSource, KIImagePagerDelegate>
 
+@property(nonatomic) PointData* pointData;
 
 @end

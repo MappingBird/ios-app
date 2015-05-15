@@ -5,10 +5,18 @@
 //  Created by Hill on 2015/1/17.
 //  Copyright (c) 2015年 mitsw. All rights reserved.
 //
-
+#import "AppDelegate.h"
 #import "PointDetailVC.h"
+#import "Image.h"
+
+#define MAX_CHAR 8
+
 
 @interface PointDetailVC ()
+@property (weak, nonatomic) IBOutlet KIImagePager *imagePager;
+
+@property (nonatomic, strong) AppDelegate *appDelegate;
+@property (nonatomic, strong) NSMutableArray *photos;
 
 @end
 
@@ -16,15 +24,60 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    _appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    self.navigationController.navigationBar.topItem.title = NSLocalizedStringFromTable(@"navi_btn_back", @"common", nil);
+    self.navigationItem.title = NSLocalizedStringFromTable(@"point_info", @"common", nil);
+    [self getImages:_pointData.id];
+
     
 
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (void) getImages : (NSNumber*) pointID
+{
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"point == %@", pointID];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:[_appDelegate managedObjectContext]];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    [request setPredicate:predicate];
+    
+    
+    NSError *error;
+    NSArray *items = [[_appDelegate managedObjectContext] executeFetchRequest:request error:&error];
+    
+
+    
+    self.photos = [NSMutableArray array];
+    for(Image *image in items){
+        //        NSLog(@" show image %@", image.url);
+        [self.photos addObject:image.url];
+        //break; // Need to remove
+    }
+    
+}
+
+
+- (UIViewContentMode) contentModeForImage:(NSUInteger)image inPager:(KIImagePager*)pager
+{
+    return UIViewContentModeScaleAspectFill;
+}
+
+- (NSArray *) arrayWithImages:(KIImagePager*)pager
+{
+    return self.photos;
+}
+
+
 
 /*
 #pragma mark - Navigation

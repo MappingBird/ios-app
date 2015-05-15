@@ -32,7 +32,7 @@
 
     // 移除程式，不會把 Keychain 的資料移除，所以這邊不能用
     // 不然就是要自己清空
-    //NSString *token = (NSString *)[JNKeychain loadValueForKey:MB_TOKEN];
+    //NSString *token = (NSString *)[JNKeychain loadValueForKey:MPB_TOKEN];
 
     NSString *token = [self getToken];
 

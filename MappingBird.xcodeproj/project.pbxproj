@@ -30,8 +30,7 @@
 		AF40E74F1A7381B300B6F73A /* NGC6559.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF40E7481A7381B300B6F73A /* NGC6559.jpg */; };
 		AF40E7501A7381B300B6F73A /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = AF40E7491A7381B300B6F73A /* Thumbs.db */; };
 		AF4997E819F32F0300737552 /* DEMOFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4997E319F32F0300737552 /* DEMOFirstViewController.m */; };
-		AF4997E919F32F0300737552 /* DEMOSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4997E519F32F0300737552 /* DEMOSecondViewController.m */; };
-		AF4997EA19F32F0300737552 /* DEMOLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4997E719F32F0300737552 /* DEMOLeftMenuViewController.m */; };
+		AF4997EA19F32F0300737552 /* MainPageLeftMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4997E719F32F0300737552 /* MainPageLeftMenuVC.m */; };
 		AF4997ED19F32F4700737552 /* DEMOThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4997EC19F32F4700737552 /* DEMOThirdViewController.m */; };
 		AF56DC6819F3585500C412E6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF56DC6719F3585500C412E6 /* MapKit.framework */; };
 		AF60C7B519F96F3C005B2BEA /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF60C7B419F96F3C005B2BEA /* LoginVC.m */; };
@@ -117,10 +116,8 @@
 		AF40E7491A7381B300B6F73A /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
 		AF4997E219F32F0300737552 /* DEMOFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOFirstViewController.h; sourceTree = "<group>"; };
 		AF4997E319F32F0300737552 /* DEMOFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOFirstViewController.m; sourceTree = "<group>"; };
-		AF4997E419F32F0300737552 /* DEMOSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOSecondViewController.h; sourceTree = "<group>"; };
-		AF4997E519F32F0300737552 /* DEMOSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOSecondViewController.m; sourceTree = "<group>"; };
-		AF4997E619F32F0300737552 /* DEMOLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOLeftMenuViewController.h; sourceTree = "<group>"; };
-		AF4997E719F32F0300737552 /* DEMOLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOLeftMenuViewController.m; sourceTree = "<group>"; };
+		AF4997E619F32F0300737552 /* MainPageLeftMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageLeftMenuVC.h; sourceTree = "<group>"; };
+		AF4997E719F32F0300737552 /* MainPageLeftMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageLeftMenuVC.m; sourceTree = "<group>"; };
 		AF4997EB19F32F4700737552 /* DEMOThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOThirdViewController.h; sourceTree = "<group>"; };
 		AF4997EC19F32F4700737552 /* DEMOThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOThirdViewController.m; sourceTree = "<group>"; };
 		AF56DC6719F3585500C412E6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -237,20 +234,15 @@
 				AF60C7B419F96F3C005B2BEA /* LoginVC.m */,
 				AF4997E219F32F0300737552 /* DEMOFirstViewController.h */,
 				AF4997E319F32F0300737552 /* DEMOFirstViewController.m */,
-				AF4997E419F32F0300737552 /* DEMOSecondViewController.h */,
-				AF4997E519F32F0300737552 /* DEMOSecondViewController.m */,
 				AF4997EB19F32F4700737552 /* DEMOThirdViewController.h */,
 				AF4997EC19F32F4700737552 /* DEMOThirdViewController.m */,
-				AF4997E619F32F0300737552 /* DEMOLeftMenuViewController.h */,
-				AF4997E719F32F0300737552 /* DEMOLeftMenuViewController.m */,
+				AF77D2E11B0632D8006A02CC /* Main Page */,
 				AFED07DE19E3658D00397949 /* RESideMenuRootVC.h */,
 				AFED07DF19E3658D00397949 /* RESideMenuRootVC.m */,
 				AFED07FF19E366CC00397949 /* SplashScreenVC.h */,
 				AFED080019E366CC00397949 /* SplashScreenVC.m */,
-				AF732D1C1A6A45E000ECDEC6 /* PointDetailVC.h */,
-				AF732D1D1A6A45E000ECDEC6 /* PointDetailVC.m */,
-				AF2162721A9043400010550A /* MBDetailMapVC.h */,
-				AF2162731A9043400010550A /* MBDetailMapVC.m */,
+				AF30B0431B0604B10021F420 /* Point Details Page */,
+				AF30B0421B0603350021F420 /* Point Map Page */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -262,6 +254,24 @@
 				AF1C99481AD8ED5500D303C5 /* ViewController.m */,
 			);
 			name = "Introduce View";
+			sourceTree = "<group>";
+		};
+		AF30B0421B0603350021F420 /* Point Map Page */ = {
+			isa = PBXGroup;
+			children = (
+				AF2162721A9043400010550A /* MBDetailMapVC.h */,
+				AF2162731A9043400010550A /* MBDetailMapVC.m */,
+			);
+			name = "Point Map Page";
+			sourceTree = "<group>";
+		};
+		AF30B0431B0604B10021F420 /* Point Details Page */ = {
+			isa = PBXGroup;
+			children = (
+				AF732D1C1A6A45E000ECDEC6 /* PointDetailVC.h */,
+				AF732D1D1A6A45E000ECDEC6 /* PointDetailVC.m */,
+			);
+			name = "Point Details Page";
 			sourceTree = "<group>";
 		};
 		AF40E7411A7381B300B6F73A /* Resources */ = {
@@ -305,6 +315,15 @@
 			children = (
 			);
 			name = KeyChain;
+			sourceTree = "<group>";
+		};
+		AF77D2E11B0632D8006A02CC /* Main Page */ = {
+			isa = PBXGroup;
+			children = (
+				AF4997E619F32F0300737552 /* MainPageLeftMenuVC.h */,
+				AF4997E719F32F0300737552 /* MainPageLeftMenuVC.m */,
+			);
+			name = "Main Page";
 			sourceTree = "<group>";
 		};
 		AF93BE481A62A5F9006A6A4F /* CustomView */ = {
@@ -629,7 +648,7 @@
 				AF6928821A39FE6400E6A635 /* RPPoint.m in Sources */,
 				AFE21F841A07E476000F9162 /* CoreData.xcdatamodeld in Sources */,
 				AFED07DD19E3658D00397949 /* AppDelegate.m in Sources */,
-				AF4997EA19F32F0300737552 /* DEMOLeftMenuViewController.m in Sources */,
+				AF4997EA19F32F0300737552 /* MainPageLeftMenuVC.m in Sources */,
 				AF264A6C1A02A07D00C7DBC3 /* LoginManager.m in Sources */,
 				AFABC9251A6E8F2A0059D35A /* UIViewController+QMBParallaxScrollViewController.m in Sources */,
 				AFBAE0C01A1F0EDA00315912 /* User.m in Sources */,
@@ -637,7 +656,6 @@
 				AF35104B1A22458D005476CE /* LoginUser.m in Sources */,
 				AF40E73F1A73806D00B6F73A /* SamplePhotoBrowserViewController.m in Sources */,
 				AF7336791A298E6000EF98FC /* RPCollections.m in Sources */,
-				AF4997E919F32F0300737552 /* DEMOSecondViewController.m in Sources */,
 				AF40E7401A73806D00B6F73A /* SampleScrollViewController.m in Sources */,
 				AF64DEED1A4F9EBD00E0C387 /* RP_Location.m in Sources */,
 				AFED07DA19E3658D00397949 /* main.m in Sources */,

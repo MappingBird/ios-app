@@ -25,13 +25,9 @@
 
 static CGRect MapOriginalFrame;
 
-NSArray *fakeTitles1;
-NSArray *fakeTitles2;
-NSArray *fakeTitles3;
-NSArray *fakeTitles4;
-
 
 @implementation DEMOThirdViewController 
+
 - (IBAction)pushViewController:(id)sender{
     UIViewController *viewController = [[UIViewController alloc] init];
     viewController.title = @"Pushed Controller";
@@ -40,22 +36,6 @@ NSArray *fakeTitles4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-//    switch (_currentPageIndex) {
-//        case 0:
-//        default:
-//            return [fakeTitles1 count];
-//            break;
-//            
-//        case 1:
-//            return [fakeTitles2 count];
-//            break;
-//            
-//        case 2:
-//            return [fakeTitles3 count];
-//            break;
-//
-//    }
     
     if(_pointList.count != 0){
         return _pointList.count;
@@ -102,54 +82,18 @@ NSArray *fakeTitles4;
     
 //    NSLog(@"currentPageIndex : %d", _currentPageIndex);
     
-    fakeTitles1 = @[
-                    @"FABRICA 椅子咖啡",
-                    @"At Home Cafe 咖啡家",
-                    @"大稻埕的老宅星巴克",
-                    @"drip cafe 好滴咖啡",
-                    @"花花，甲飽沒",
-                    @"傳奇玫瑰花園廚坊",
-                    @"Fika Fika Cafe 北歐風咖啡時光",
-                    @"麵屋輝。源自大阪的好味道",
-                    @"台北犁記 太陽餅...",
-                    @"泰亞美食館 復北一館",
-                    @"瞞著爹 (丼三店)",
-                    @"哈古小館",
-                    @"向餐廳 Hsiang The Brunch",
-                    @"紅蜻蜓食事處@永康街",
-                    @"四川吳抄手",
-                    @"2F Lite 貳拂咖啡",
-                    @"御奉Emperor Love ~大餅焗烤千層",
-                    @"台北信義區。國父紀念館站...",
-                    ];
-    
-    
-    fakeTitles2 = @[
-                    @"akuma caca可可設計人文咖啡",
-                    @"【古亭】 露西小棧 ...",
-                    @"Cafe Bastille 溫州店 ...",
-                    @"【台北】有著意外好吃  CHEESE CAKE ...",
-                    ];
-    
-    
-    fakeTitles3 = @[
-                    @"小器食堂",
-                    @"中山捷運站。FAVVI@tube  ...",
-                    @"富錦街~小普羅旺斯",
-                    @"i.za house【南法鄉村風】",
-                    @"【基隆】黑兔兔的散步生活屋",
-                    ];
     
 }
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [self performSegueWithIdentifier:@"toPointDetail" sender:self];
 
     _selectedItem = (NSInteger)indexPath.row;
-    [self performSegueWithIdentifier:@"toPointView2" sender:self];
 
+//    [self performSegueWithIdentifier:@"toPointView2" sender:self];
+    [self performSegueWithIdentifier:@"toPointDetail" sender:self];
+    
     
 //    PointDetailVC *secondViewController = [[PointDetailVC alloc] init];
 //    secondViewController.data = _label.text;
@@ -164,9 +108,11 @@ NSArray *fakeTitles4;
     if ([[segue identifier] isEqualToString:@"toPointDetail"]) {
 
         if([[segue destinationViewController] isKindOfClass:[PointDetailVC class]] ){
-
+            PointDetailVC *destViewController = segue.destinationViewController;
+            destViewController.pointData = [_pointList objectAtIndex:_selectedItem];
         }
     }else if ([[segue identifier] isEqualToString:@"toPointView2"]) {
+
         if([[segue destinationViewController] isKindOfClass:[ParallaxPhotoViewController class]] ){
             
             ParallaxPhotoViewController *destViewController = segue.destinationViewController;
@@ -192,54 +138,8 @@ NSArray *fakeTitles4;
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
     cell.textLabel.textColor = [UIColor blackColor];
-
     
     
-//
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//        cell.backgroundColor = [UIColor clearColor];
-//        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-//        cell.textLabel.textColor = [UIColor blackColor];
-//        cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
-//        cell.selectedBackgroundView = [[UIView alloc] init];
-//    }
-    
-//    NSArray *fakeTitles1 = @[@"大稻埕的老宅星巴克",
-//                             @"花花，甲飽沒",
-//                             @"Fika Fika Cafe 北歐風咖啡時光",
-//                             @"麵屋輝。源自大阪的好味道",
-////                             @"",
-//
-//                             ];
-    
-    
-//    /cell.textLabel.text = fakeTitles[indexPath.row];
-    
-    
-    
-    NSArray *fakeTitles;
-    
-    switch (_currentPageIndex) {
-        case 0:
-        default:
-            fakeTitles = fakeTitles1;
-            break;
-            
-        case 1:
-            fakeTitles = fakeTitles2;
-            break;
-        case 2:
-            fakeTitles = fakeTitles3;
-            break;
-            
-    }
-    
-    NSMutableArray *images = [NSMutableArray array];
-    for (NSUInteger i = 0; i < [fakeTitles count]; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"%@", [fakeTitles objectAtIndex:i]];
-        [images addObject:imageName];
-    }
     
     PointData *point = [_pointList objectAtIndex:indexPath.row];
     
@@ -249,10 +149,11 @@ NSArray *fakeTitles4;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 //        NSString *imgURL = @"http://blogs-images.forbes.com/antonyleather/files/2014/09/iphone-6-camera.jpg";
         
-        // 這邊的 URL 是 網址，不是 圖片的 URL
+        // 這邊的 URL 是 這個地點的網址，不是 圖片的 URL, 顯示不出來
         NSString *imgURL = point.url;
         //NSLog(@"imgURL : %@", imgURL);
         imgURL = @"";
+        
         
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgURL]];
         

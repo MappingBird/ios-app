@@ -59,7 +59,6 @@
     NSError *error;
     NSArray *items = [[_appDelegate managedObjectContext] executeFetchRequest:request error:&error];
     
-    NSLog(@" heloowooo");
     NSLog(@" size : %lud", (unsigned long)items.count);
     
 //

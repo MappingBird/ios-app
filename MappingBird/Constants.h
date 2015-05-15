@@ -21,7 +21,7 @@
 #define MP_DEBUG_INFO  0
 #define DUPLICATE_COUNT  1
 
-#define MB_TOKEN  @"MB_TOKEN"
-#define MB_USER_ID  @"MB_USER_ID"
+#define MPB_TOKEN  @"MPB_TOKEN"
+#define MPB_USER_ID  @"MPB_USER_ID"
 
 #endif

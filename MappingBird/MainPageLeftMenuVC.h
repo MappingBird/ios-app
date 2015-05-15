@@ -10,7 +10,7 @@
 #import "RESideMenu.h"
 #import <CoreData/CoreData.h>
 
-@interface DEMOLeftMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate,RESideMenuDelegate>
+@interface MainPageLeftMenuVC : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate,RESideMenuDelegate>
 
 
 

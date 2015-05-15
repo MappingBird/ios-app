@@ -95,7 +95,7 @@
         };
 
         // get more details
-        NSString *token = (NSString *)[JNKeychain loadValueForKey:MB_TOKEN];
+        NSString *token = (NSString *)[JNKeychain loadValueForKey:MPB_TOKEN];
         for (PointData *data in [[self fetchedResultsController] fetchedObjects]) {
         
             [[PointMgr alloc] UpdatePointByPid:[data.id stringValue] token:token callback:pointCallback appDelegate:_appDelegate];
@@ -107,8 +107,8 @@
     };
     
     
-    NSString *token = (NSString *)[JNKeychain loadValueForKey:MB_TOKEN];
-    NSString *user_id = (NSString *)[JNKeychain loadValueForKey:MB_USER_ID];
+    NSString *token = (NSString *)[JNKeychain loadValueForKey:MPB_TOKEN];
+    NSString *user_id = (NSString *)[JNKeychain loadValueForKey:MPB_USER_ID];
     
     if((![token length] == 0) ){
         [[CollectionMgr alloc] UpdateCollectionsByUserId:user_id token:token callback:callback appDelegate:_appDelegate];
