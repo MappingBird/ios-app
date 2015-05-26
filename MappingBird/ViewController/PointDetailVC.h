@@ -12,6 +12,9 @@
 
 @interface PointDetailVC : UIViewController <KIImagePagerDataSource, KIImagePagerDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *pointTitle;
+@property (weak, nonatomic) IBOutlet UILabel *pointDes;
+
 @property(nonatomic) PointData* pointData;
 
 @end

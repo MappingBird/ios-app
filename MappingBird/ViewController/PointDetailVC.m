@@ -31,6 +31,8 @@
     [self getImages:_pointData.id];
 
     
+    _pointTitle.text = _pointData.title;    
+    _pointDes.text = _pointData.descr;
 
 }
 

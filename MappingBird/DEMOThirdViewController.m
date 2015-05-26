@@ -12,6 +12,8 @@
 #import "AppDelegate.h"
 #import "PointData.h"
 #import "ParallaxPhotoViewController.h"
+#import "MBPointPin.h"
+#import "Location.h"
 
 @interface DEMOThirdViewController()
 
@@ -59,7 +61,7 @@ static CGRect MapOriginalFrame;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     _appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
 
     _pointList = [self getPointList : _collectionId];
@@ -83,8 +85,119 @@ static CGRect MapOriginalFrame;
 //    NSLog(@"currentPageIndex : %d", _currentPageIndex);
     
     
+    NSString *latitude;
+    NSString *longitude;
+
+    NSMutableArray *places = [[NSMutableArray alloc] init];
+
+    for(PointData *point in _pointList){
+        if(point != nil){
+            
+            Location *location = [self getLocation:(NSInteger)point.id];
+            
+            if(location != nil){
+                
+                NSString *coordinate = location.coordinates;
+                
+                if(coordinate.length > 0){
+                    NSArray *coordinates = [coordinate componentsSeparatedByString:@","];
+                    latitude = [coordinates objectAtIndex:0];
+                    longitude = [coordinates objectAtIndex:1];
+                    
+                    MBPointPin *place = [[MBPointPin alloc] initWithJSON:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                                          point.place_name, @"name",
+                                                                          point.place_address, @"address",
+                                                                          latitude, @"lat",
+                                                                          longitude, @"lng",
+                                                                          nil]];
+                    [places addObject:place];
+                }
+            }
+            
+        }
+    }
+    
+
+    if(places.count > 0){
+        
+        // centered the region
+        MKCoordinateRegion region = [self regionForAnnotations:places];
+        [self._mapView setRegion:region animated:YES];
+        
+        // NOTE: if doesn't call this method, no marker will be shown
+        [self._mapView addAnnotations:places];
+    }
+    
 }
 
+- (Location*) getLocation : (NSInteger) pointID{
+    
+    if(_appDelegate != nil){
+        
+        
+        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"point_id == %@", pointID];
+        
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:[_appDelegate managedObjectContext]];
+        
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entityDescription];
+        [request setPredicate:predicate];
+        
+        NSError *error;
+        NSArray *items = [[_appDelegate managedObjectContext] executeFetchRequest:request error:&error];
+        
+        
+        if(items.count == 1){
+            return (Location*)[items objectAtIndex : 0];;
+        }else{
+            return nil;
+        }
+        
+    }else{
+        return nil;
+    }
+    
+}
+
+
+- (MKCoordinateRegion)regionForAnnotations:(NSArray *)annotations
+{
+    MKCoordinateRegion region;
+    
+    if ([annotations count] == 0) {
+        region = MKCoordinateRegionMakeWithDistance(self._mapView.userLocation.coordinate, 1000, 1000);
+        
+    } else if ([annotations count] == 1) {
+        id <MKAnnotation> annotation = [annotations lastObject];
+        
+        region = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 1000, 1000);
+        
+    } else {
+        CLLocationCoordinate2D topLeftCoord;
+        topLeftCoord.latitude = -90;
+        topLeftCoord.longitude = 180;
+        
+        CLLocationCoordinate2D bottomRightCoord;
+        bottomRightCoord.latitude = 90;
+        bottomRightCoord.longitude = -180;
+        
+        for (id <MKAnnotation> annotation in annotations)
+        {
+            topLeftCoord.latitude = fmax(topLeftCoord.latitude, annotation.coordinate.latitude);
+            topLeftCoord.longitude = fmin(topLeftCoord.longitude, annotation.coordinate.longitude);
+            bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, annotation.coordinate.latitude);
+            bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, annotation.coordinate.longitude);
+        }
+        
+        const double extraSpace = 1.1;
+        region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) / 2.0;
+        region.center.longitude = topLeftCoord.longitude - (topLeftCoord.longitude - bottomRightCoord.longitude) / 2.0;
+        region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * extraSpace;
+        region.span.longitudeDelta = fabs(topLeftCoord.longitude - bottomRightCoord.longitude) * extraSpace;
+    }
+    
+    return [self._mapView regionThatFits:region];
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -138,9 +251,7 @@ static CGRect MapOriginalFrame;
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
     cell.textLabel.textColor = [UIColor blackColor];
-    
-    
-    
+        
     PointData *point = [_pointList objectAtIndex:indexPath.row];
     
     cell.textLabel.text = point.title;
@@ -186,6 +297,8 @@ static CGRect MapOriginalFrame;
     return items;
     
 }
+
+
 
 
 @end

@@ -12,7 +12,8 @@
 #import <MapKit/MapKit.h>
 #import "PointDetailVC.h"
 
-@interface DEMOThirdViewController : JPBFloatingTextViewController
+@interface DEMOThirdViewController : JPBFloatingTextViewController <MKMapViewDelegate, CLLocationManagerDelegate>
+
 
 - (IBAction)pushViewController:(id)sender;
 

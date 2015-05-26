@@ -50,6 +50,7 @@
         [self setTitle:_locationData.place_name];
     }
     
+    
     MBPointPin *place1 = [[MBPointPin alloc] initWithJSON:[NSDictionary dictionaryWithObjectsAndKeys:
                                                            _locationData.place_name, @"name",
                                                            _locationData.place_address, @"address",
